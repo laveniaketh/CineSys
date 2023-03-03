@@ -12,41 +12,42 @@ public class Register extends javax.swing.JFrame {
     int positionX = 0, positionY = 0;
     PreparedStatement ps;
     ResultSet rs;
+    User nu = new NewUser();
     
-    void registerAction () throws SQLException {
+    void registerAction () {
         // Creating a new account
-        String fname = tfFirstName.getText();
-        String lname = tfLastName.getText();
-        String uname = tfUsername.getText();
-        String pass = String.valueOf(pfPassword.getPassword());
-        String re_pass = String.valueOf(pfConfirmPassword.getPassword());
+        nu.setFirstname(tfFirstName.getText());
+        nu.setLastname(tfLastName.getText());
+        nu.setUsername(tfUsername.getText());
+        nu.setPassword(String.valueOf(pfPassword.getPassword()));
+        nu.setRepassword(String.valueOf(pfPassword.getPassword()));
         
-        if(fname.equals("")){
+        if(nu.getFirstname().equals("")){
             JOptionPane.showMessageDialog(null, "Add A First Name.");
         }
-        else if(lname.equals("")){
+        else if(nu.getLastname().equals("")){
             JOptionPane.showMessageDialog(null, "Add A Last Name.");
         }
-        else if(uname.equals("")){
+        else if(nu.getUsername().equals("")){
             JOptionPane.showMessageDialog(null, "Add An Username.");
         }
-        else if(pass.equals("")){
+        else if(nu.getPassword().equals("")){
             JOptionPane.showMessageDialog(null, "Add A Pssword.");
         }
-        else if(!pass.equals(re_pass)){
+        else if(!nu.getPassword().equals(nu.getRepassword())){
             JOptionPane.showMessageDialog(null, "Retype The Password Again.");
         }
-        else if(checkUsername(uname)){
+        else if(checkUsername(nu.getUsername())){
              JOptionPane.showMessageDialog(null, "This Username Already Exist.");
         }
         else{
             try {
             ps = Database.connect().prepareStatement("INSERT INTO `users_acc`(`first_name`, `last_name`, `username`, `password`) VALUES (?,?,?,?)");
             
-            ps.setString(1, fname);
-            ps.setString(2, lname);
-            ps.setString(3, uname);
-            ps.setString(4, pass);
+            ps.setString(1, nu.getFirstname());
+            ps.setString(2, nu.getLastname());
+            ps.setString(3, nu.getUsername());
+            ps.setString(4, nu.getPassword());
 
              
              if (ps.executeUpdate() > 0){
@@ -96,7 +97,6 @@ public class Register extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         firstName = new javax.swing.JLabel();
         tfFirstName = new javax.swing.JTextField();
-        tfFirstName1 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         lastName = new javax.swing.JLabel();
         tfLastName = new javax.swing.JTextField();
@@ -190,23 +190,7 @@ public class Register extends javax.swing.JFrame {
         tfFirstName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
         tfFirstName.setName(""); // NOI18N
         tfFirstName.setPreferredSize(new java.awt.Dimension(72, 17));
-        tfFirstName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfFirstNameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfFirstNameFocusLost(evt);
-            }
-        });
         jPanel6.add(tfFirstName, java.awt.BorderLayout.CENTER);
-
-        tfFirstName1.setBackground(new java.awt.Color(225, 184, 120));
-        tfFirstName1.setFont(new java.awt.Font("Figtree Light", 0, 14)); // NOI18N
-        tfFirstName1.setForeground(new java.awt.Color(102, 32, 42));
-        tfFirstName1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
-        tfFirstName1.setName(""); // NOI18N
-        tfFirstName1.setPreferredSize(new java.awt.Dimension(72, 17));
-        jPanel6.add(tfFirstName1, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 117, -1));
 
@@ -261,6 +245,7 @@ public class Register extends javax.swing.JFrame {
         pfPassword.setFont(new java.awt.Font("Figtree Light", 0, 14)); // NOI18N
         pfPassword.setForeground(new java.awt.Color(102, 32, 42));
         pfPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
+        pfPassword.setEchoChar('\u0000');
         jPanel10.add(pfPassword, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 117, -1));
@@ -278,6 +263,7 @@ public class Register extends javax.swing.JFrame {
         pfConfirmPassword.setFont(new java.awt.Font("Figtree Light", 0, 14)); // NOI18N
         pfConfirmPassword.setForeground(new java.awt.Color(102, 32, 42));
         pfConfirmPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
+        pfConfirmPassword.setEchoChar('\u0000');
         jPanel12.add(pfConfirmPassword, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
@@ -397,26 +383,9 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_JLabelCloseMouseClicked
 
     private void bRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegisterActionPerformed
-        try {
-            registerAction ();
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        registerAction();
+        
     }//GEN-LAST:event_bRegisterActionPerformed
-
-    private void tfFirstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfFirstNameFocusLost
-        if (tfFirstName.getText().equals("")){
-            tfFirstName.setText("Enter Username");
-            tfFirstName.setForeground(new Color(0,0,0));
-        }
-    }//GEN-LAST:event_tfFirstNameFocusLost
-
-    private void tfFirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfFirstNameFocusGained
-        if (tfFirstName.getText().equals("Enter Username")){
-            tfFirstName.setText("");
-            tfFirstName.setForeground(new Color(0,0,0));
-        }
-    }//GEN-LAST:event_tfFirstNameFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -444,7 +413,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField pfConfirmPassword;
     private javax.swing.JPasswordField pfPassword;
     private javax.swing.JTextField tfFirstName;
-    private javax.swing.JTextField tfFirstName1;
     private javax.swing.JTextField tfLastName;
     private javax.swing.JTextField tfUsername;
     private javax.swing.JLabel username;

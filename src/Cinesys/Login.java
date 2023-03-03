@@ -1,41 +1,49 @@
 package Cinesys;
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.sql.*;  
 import javax.swing.JOptionPane;
+
 
 public class Login extends javax.swing.JFrame {
     //declare variables to store x and y coordinate values
     int positionX = 0, positionY = 0;
-    
     PreparedStatement ps;
-    ResultSet rs;
+     ResultSet rs;
    
+    User ou = new OldUser();
     
-    void Loginaction () throws SQLException {
-        String username = tfusername.getText();
-        String password = tfpassword.getText();
-        {
+       void loginAction(){
+           ou.setUsername(tfusername.getText());
+           ou.setPassword(tfpassword.getText());
+        try {
             ps = Database.connect().prepareStatement("SELECT * FROM `users_acc` WHERE `username` =? AND `password` =?");
-
-            ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(1, ou.getUsername());
+            ps.setString(2, ou.getPassword());
 
             rs = ps.executeQuery();
                 if(rs.next()){
                     JOptionPane.showMessageDialog(null, "You are Logged-in!");
-                    this.setVisible(false);
+                    dispose();
+                    sample s = new sample();
+                    s.setVisible(true);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Invalid username or password.");
                 }
-        }
+        } catch (SQLException ex) {
+            Logger.getLogger(OldUser.class.getName()).log(Level.SEVERE, null, ex);
+        }     
     }
     
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null); //center fom in the screen
+       
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -231,29 +239,28 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfusernameFocusGained
-        if (tfusername.getText().equals("Enter Username")){
+         ou.setUsername(tfusername.getText());
+        if (ou.getUsername().equals("Enter Username")){
             tfusername.setText("");
             tfusername.setForeground(new Color(0,0,0));
         }
     }//GEN-LAST:event_tfusernameFocusGained
 
     private void tfusernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfusernameFocusLost
-        if (tfusername.getText().equals("")){
+        ou.setUsername(tfusername.getText());
+        if (ou.getUsername().equals("")){
             tfusername.setText("Enter Username");
             tfusername.setForeground(new Color(0,0,0));
         }
     }//GEN-LAST:event_tfusernameFocusLost
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-                  try {
-                    Loginaction();
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+        loginAction();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void tfpasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfpasswordFocusGained
-        if (tfpassword.getText().equals("Enter Password")){
+         ou.setPassword(tfpassword.getText());
+        if (ou.getPassword().equals("Enter Password")){
             tfpassword.setText("");
             tfpassword.requestFocus();
             tfpassword.setEchoChar('•');
@@ -262,7 +269,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_tfpasswordFocusGained
 
     private void tfpasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfpasswordFocusLost
-        if (tfpassword.getText().equals("")){
+             ou.setPassword(tfpassword.getText());
+        if (ou.getPassword().equals("")){
             tfpassword.setText("Enter Password");
             tfpassword.setEchoChar('\u0000');
             tfpassword.setForeground(new Color(0,0,0));
@@ -326,3 +334,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField tfusername;
     // End of variables declaration//GEN-END:variables
 }
+

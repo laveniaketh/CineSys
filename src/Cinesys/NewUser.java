@@ -1,9 +1,30 @@
 
 package Cinesys;
 
-public class NewUser extends OldUser {
+public class NewUser extends User {
     
-    private String firstName, lastName; 
+    @Override
+    public String getFirstname() {
+        return firstname;
+    }
+    @Override
+    public String getLastname() {
+        return lastname;
+    }
+    @Override
+    public String getUsername() {
+        return username;
+    }
+    @Override
+    public String getPassword() {
+        return password;
+    }
+    @Override
+    public String getRepassword() {
+        return repassword;
+    }
+    
+    
     
     
     
