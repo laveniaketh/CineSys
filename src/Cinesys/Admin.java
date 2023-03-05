@@ -15,9 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.proteanit.sql.DbUtils;
 
-
 public class Admin extends javax.swing.JFrame {
-    
     PreparedStatement ps;
     ResultSet rs;
     String filename = null;
@@ -25,7 +23,7 @@ public class Admin extends javax.swing.JFrame {
    
     public Admin() {
         initComponents();
-        this.setLocationRelativeTo(null); //center fom in the screen
+        this.setLocationRelativeTo(null); //center form in the screen
         Database.connect();
         movielist_load();
         displayDashboard();
@@ -42,7 +40,7 @@ public class Admin extends javax.swing.JFrame {
         editscreeningP.setVisible(false);
     }
     
-    void addMoviesToCbBox(){ // add all the movies from the database to the movielist combobox
+    void addMoviesToCbBox(){ // add all the movies from the database to the movielist combobox located at edit screening panel
         try {
             ps = Database.connect().prepareStatement("SELECT * FROM `movielist`");
             rs = ps.executeQuery();
@@ -70,6 +68,7 @@ public class Admin extends javax.swing.JFrame {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    
     void nowShowingPosters(){ //show movie posters at the dashboard
         ArrayList <String> movieList = new ArrayList();
         try {
@@ -122,6 +121,7 @@ public class Admin extends javax.swing.JFrame {
             throw new RuntimeException(e);
         }
     } 
+    
     void customerlist_load (){ //this will display the customer list table
         try {
             ps = Database.connect().prepareStatement("SELECT * FROM `customerlist`");
@@ -831,7 +831,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
         //to close the admin page
-        this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_tab4MouseClicked
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
