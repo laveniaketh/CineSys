@@ -12,10 +12,8 @@ public class Login extends javax.swing.JFrame {
     //declare variables to store x and y coordinate values
     int positionX = 0, positionY = 0;
     PreparedStatement ps;
-     ResultSet rs;
-   
+    ResultSet rs;
     User ou = new User();
-    
        void loginAction(){
            ou.setUsername(tfusername.getText());
            ou.setPassword(tfpassword.getText());
@@ -28,8 +26,8 @@ public class Login extends javax.swing.JFrame {
                 if(rs.next()){
                     JOptionPane.showMessageDialog(null, "You are Logged-in!");
                     dispose();
-                    sample s = new sample();
-                    s.setVisible(true);
+//                    sample s = new sample();
+//                    s.setVisible(true);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Invalid username or password.");

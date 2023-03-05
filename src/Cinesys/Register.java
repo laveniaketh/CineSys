@@ -11,8 +11,12 @@ public class Register extends javax.swing.JFrame {
     int positionX = 0, positionY = 0;
     PreparedStatement ps;
     ResultSet rs;
-    User nu = new User();
-    
+    User nu = new User(); 
+  
+    public Register() {
+        initComponents();
+        this.setLocationRelativeTo(null); //center fom in the screen
+    }
     void registerAction () {
         // Creating a new account
         nu.setFirstname(tfFirstName.getText());
@@ -47,16 +51,14 @@ public class Register extends javax.swing.JFrame {
             ps.setString(2, nu.getLastname());
             ps.setString(3, nu.getUsername());
             ps.setString(4, nu.getPassword());
-
              
              if (ps.executeUpdate() > 0){
                  JOptionPane.showMessageDialog(null, "New User Added");
              }
         } catch (SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-        
+            }
+        } 
     }
     
     public boolean checkUsername(String username ){
@@ -76,12 +78,6 @@ public class Register extends javax.swing.JFrame {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
         return checkUser;    
-    }
-  
-
-    public Register() {
-        initComponents();
-        this.setLocationRelativeTo(null); //center fom in the screen
     }
 
     @SuppressWarnings("unchecked")
@@ -361,7 +357,6 @@ public class Register extends javax.swing.JFrame {
         // get x and y coordinate values
         positionX = evt.getX();
         positionX = evt.getY();
-        
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
@@ -380,8 +375,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_JLabelCloseMouseClicked
 
     private void bRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegisterActionPerformed
-        registerAction();
-        
+        registerAction();  
     }//GEN-LAST:event_bRegisterActionPerformed
 
 
