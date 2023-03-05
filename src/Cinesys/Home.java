@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.sql.ResultSet;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ItemEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -17,15 +18,26 @@ public class Home extends javax.swing.JFrame {
     PreparedStatement ps;
     ResultSet rs;
     String mname = "";
+    String mtime = "";
     ArrayList <String> movieList = new ArrayList();
+    int tcktqty;
+   String[] seatsSelect;
+   String snum;
+   int clickseat = 0;
+   boolean checkseat = true;
+   String setSeat(String snum){
+       this.snum = snum;
+       return snum;  
+    }
+   String getSeat(){
+       return snum;
+   }
 
     public Home() {
         initComponents();
         displayMovieSelectPanel();
         displayMoviePosters();
-        displaySelectedMovie();
-        
-        
+        displaySelectedMovie(); 
         
     }
     
@@ -97,6 +109,14 @@ public class Home extends javax.swing.JFrame {
         return mname;
     }
     
+    void setTime(String mt){
+        this.mtime = mt;
+    }
+    
+    public String getTime(){
+        return mtime;
+    }
+    
     void displayMoviePanel(){
         movieTab.setBackground(new Color(249,235,196));
         confirmationTab.setBackground(new Color(200,120,47));
@@ -162,10 +182,227 @@ public class Home extends javax.swing.JFrame {
         receipttxt.setText(receipttxt.getText()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
         receipttxt.setText(receipttxt.getText()+ "TOTAL  :\n");
-        
-        
-        
-        
+           
+    }
+    
+    void reserveSeat(){
+         // to disable seats that are already reserved/book
+        String reserveSeat;
+  
+        try {
+            ps = Database.connect().prepareStatement(" SELECT `Seat No.` FROM `customerlist` WHERE `Movie Ttile` = ? AND `Time` = ?");
+            ps.setString(1, getMovie());
+            ps.setString(2, getTime());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                reserveSeat = rs.getString("Seat No.");
+                if(reserveSeat.equals("S1")) S1.setEnabled(false);
+                else if(reserveSeat.equals("S2")) S2.setEnabled(false);
+                else if(reserveSeat.equals("S3")) S3.setEnabled(false);
+                else if(reserveSeat.equals("S4")) S4.setEnabled(false);
+                else if(reserveSeat.equals("S5")) S5.setEnabled(false);
+                else if(reserveSeat.equals("S6")) S6.setEnabled(false);
+                else if(reserveSeat.equals("S7")) S7.setEnabled(false);
+                else if(reserveSeat.equals("S8")) S8.setEnabled(false);
+                else if(reserveSeat.equals("S9")) S9.setEnabled(false);
+                else if(reserveSeat.equals("S10")) S10.setEnabled(false);
+                else if(reserveSeat.equals("S11")) S11.setEnabled(false);
+                else if(reserveSeat.equals("S12")) S12.setEnabled(false);
+                else if(reserveSeat.equals("S13")) S13.setEnabled(false);
+                else if(reserveSeat.equals("S14")) S14.setEnabled(false);
+                else if(reserveSeat.equals("S15")) S15.setEnabled(false);
+                else if(reserveSeat.equals("S16")) S16.setEnabled(false);
+                else if(reserveSeat.equals("S17")) S17.setEnabled(false);
+                else if(reserveSeat.equals("S18")) S18.setEnabled(false);
+                else if(reserveSeat.equals("S19")) S19.setEnabled(false);
+                else if(reserveSeat.equals("S20")) S20.setEnabled(false);
+                else if(reserveSeat.equals("S21")) S21.setEnabled(false);
+                else if(reserveSeat.equals("S22")) S22.setEnabled(false);
+                else if(reserveSeat.equals("S23")) S23.setEnabled(false);
+                else if(reserveSeat.equals("S24")) S24.setEnabled(false);
+                else if(reserveSeat.equals("S25")) S25.setEnabled(false);
+                else if(reserveSeat.equals("S26")) S26.setEnabled(false);
+                else if(reserveSeat.equals("S27")) S27.setEnabled(false);
+                else if(reserveSeat.equals("S28")) S28.setEnabled(false);
+                else if(reserveSeat.equals("S29")) S29.setEnabled(false);
+                else if(reserveSeat.equals("S30")) S30.setEnabled(false);
+                else if(reserveSeat.equals("S31")) S31.setEnabled(false);
+                else if(reserveSeat.equals("S32")) S32.setEnabled(false);
+                else if(reserveSeat.equals("S33")) S33.setEnabled(false);
+                else if(reserveSeat.equals("S34")) S34.setEnabled(false);
+                else if(reserveSeat.equals("S35")) S35.setEnabled(false);
+                else if(reserveSeat.equals("S36")) S36.setEnabled(false);
+                else if(reserveSeat.equals("S37")) S37.setEnabled(false);
+                else if(reserveSeat.equals("S38")) S38.setEnabled(false);
+                else if(reserveSeat.equals("S39")) S39.setEnabled(false);
+                else if(reserveSeat.equals("S40")) S40.setEnabled(false);
+                else if(reserveSeat.equals("S41")) S41.setEnabled(false);
+                else if(reserveSeat.equals("S42")) S42.setEnabled(false);
+                else if(reserveSeat.equals("S43")) S43.setEnabled(false);
+                else if(reserveSeat.equals("S44")) S44.setEnabled(false);
+                else if(reserveSeat.equals("S45")) S45.setEnabled(false);
+                else if(reserveSeat.equals("S46")) S46.setEnabled(false);
+                else if(reserveSeat.equals("S47")) S47.setEnabled(false);
+                else if(reserveSeat.equals("S48")) S48.setEnabled(false);
+                else if(reserveSeat.equals("S49")) S49.setEnabled(false);
+                else if(reserveSeat.equals("S50")) S50.setEnabled(false);
+                else if(reserveSeat.equals("S51")) S51.setEnabled(false);
+                else if(reserveSeat.equals("S52")) S52.setEnabled(false);
+                else if(reserveSeat.equals("S53")) S53.setEnabled(false);
+                else if(reserveSeat.equals("S54")) S54.setEnabled(false);
+                else if(reserveSeat.equals("S55")) S55.setEnabled(false);
+                else if(reserveSeat.equals("S56")) S56.setEnabled(false);
+                else if(reserveSeat.equals("S57")) S57.setEnabled(false);
+                else if(reserveSeat.equals("S58")) S58.setEnabled(false);
+                else if(reserveSeat.equals("S59")) S59.setEnabled(false);
+                else if(reserveSeat.equals("S60")) S60.setEnabled(false);
+                else if(reserveSeat.equals("S61")) S61.setEnabled(false);
+                else if(reserveSeat.equals("S62")) S62.setEnabled(false);
+                else if(reserveSeat.equals("S63")) S63.setEnabled(false);
+                else if(reserveSeat.equals("S64")) S64.setEnabled(false);
+                else if(reserveSeat.equals("S65")) S65.setEnabled(false);
+                else if(reserveSeat.equals("S66")) S66.setEnabled(false);
+                else if(reserveSeat.equals("S67")) S67.setEnabled(false);
+                else if(reserveSeat.equals("S68")) S68.setEnabled(false);
+                else if(reserveSeat.equals("S69")) S69.setEnabled(false);
+                else if(reserveSeat.equals("S70")) S70.setEnabled(false);
+                else if(reserveSeat.equals("S71")) S71.setEnabled(false);
+                else if(reserveSeat.equals("S72")) S72.setEnabled(false);
+                else if(reserveSeat.equals("S73")) S73.setEnabled(false);
+                else if(reserveSeat.equals("S74")) S74.setEnabled(false);
+            
+
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+     }
+    
+    void insertSelectionToDatabase(){
+        for(int i = 0; i < tcktqty; i++){
+            String s = seatsSelect[i];
+            int tq = i;
+            try {
+                ps = Database.connect().prepareStatement("INSERT INTO `customerlist`(`Movie Ttile`, `Time`, `Seat No.`) VALUES (?,?,?)");
+                ps.setString(1, getMovie());
+                ps.setString(2, getTime());
+                ps.setString(3, s);
+            } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }JOptionPane.showMessageDialog(null,"Record Added");
+    }
+    
+    void seatLimiter(){
+        // will tell the user if theyre already exceeded seat selection
+        if(clickseat == tcktqty){
+            JOptionPane.showMessageDialog(null, "already exceeded seat selection");
+            checkseat = false; 
+        }else  checkseat = true; 
+    }
+    
+    void enableAllButtons(){
+        //to enable all buttons for resetting
+        S1.setEnabled(true);
+        S2.setEnabled(true);
+        S3.setEnabled(true);
+        S4.setEnabled(true);
+        S5.setEnabled(true);
+        S6.setEnabled(true);
+        S7.setEnabled(true);
+        S8.setEnabled(true);
+        S9.setEnabled(true);
+        S10.setEnabled(true);
+        S11.setEnabled(true);
+        S12.setEnabled(true);
+        S13.setEnabled(true);
+        S14.setEnabled(true);
+        S15.setEnabled(true);
+        S16.setEnabled(true);
+        S17.setEnabled(true);
+        S18.setEnabled(true);
+        S19.setEnabled(true);
+        S20.setEnabled(true);
+        S21.setEnabled(true);
+        S22.setEnabled(true);
+        S23.setEnabled(true);
+        S24.setEnabled(true);
+        S25.setEnabled(true);
+        S26.setEnabled(true);
+        S27.setEnabled(true);
+        S28.setEnabled(true);
+        S29.setEnabled(true);
+        S30.setEnabled(true);
+        S31.setEnabled(true);
+        S32.setEnabled(true);
+        S33.setEnabled(true);
+        S34.setEnabled(true);
+        S35.setEnabled(true);
+        S36.setEnabled(true);
+        S37.setEnabled(true);
+        S38.setEnabled(true);
+        S39.setEnabled(true);
+        S40.setEnabled(true);
+        S41.setEnabled(true);
+        S42.setEnabled(true);
+        S43.setEnabled(true);
+        S44.setEnabled(true);
+        S45.setEnabled(true);
+        S46.setEnabled(true);
+        S47.setEnabled(true);
+        S48.setEnabled(true);
+        S49.setEnabled(true);
+        S50.setEnabled(true);
+        S51.setEnabled(true);
+        S52.setEnabled(true);
+        S53.setEnabled(true);
+        S54.setEnabled(true);
+        S55.setEnabled(true);
+        S56.setEnabled(true);
+        S57.setEnabled(true);
+        S58.setEnabled(true);
+        S59.setEnabled(true);
+        S60.setEnabled(true);
+        S61.setEnabled(true);
+        S62.setEnabled(true);
+        S63.setEnabled(true);
+        S64.setEnabled(true);
+        S65.setEnabled(true);
+        S66.setEnabled(true);
+        S67.setEnabled(true);
+        S68.setEnabled(true);
+        S69.setEnabled(true);
+        S70.setEnabled(true);
+        S71.setEnabled(true);
+        S72.setEnabled(true);
+        S73.setEnabled(true);
+        S74.setEnabled(true);
+    }
+     
+    void displayTimeSlot(){
+        // display timeslot of the selected movie at the combobox
+        timeslotComboBox.removeAllItems();
+        String ts1,ts2,ts3;
+        try {
+            ps = Database.connect().prepareStatement("SELECT `Timeslot 1`, `Timeslot 2`, `Timeslot 3` FROM `movielist` WHERE `Movie Title` = ?");
+            ps.setString(1, getMovie());
+            rs = ps.executeQuery();
+            while(rs.next()){
+                ts1 = rs.getString(1);
+                ts2 = rs.getString(2);
+                ts3 = rs.getString(3);
+                    
+                timeslotComboBox.addItem(ts1);
+                timeslotComboBox.addItem(ts2);
+                timeslotComboBox.addItem(ts3);
+                   
+            }
+                
+        } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+               
     }
 
 
@@ -195,6 +432,89 @@ public class Home extends javax.swing.JFrame {
         moviePage = new javax.swing.JPanel();
         backMoviePageB = new javax.swing.JButton();
         nextMoviePageB = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        timeslotComboBox = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        S1 = new javax.swing.JButton();
+        S2 = new javax.swing.JButton();
+        S3 = new javax.swing.JButton();
+        S4 = new javax.swing.JButton();
+        S5 = new javax.swing.JButton();
+        S6 = new javax.swing.JButton();
+        S7 = new javax.swing.JButton();
+        S8 = new javax.swing.JButton();
+        S9 = new javax.swing.JButton();
+        S10 = new javax.swing.JButton();
+        S11 = new javax.swing.JButton();
+        S12 = new javax.swing.JButton();
+        S13 = new javax.swing.JButton();
+        S14 = new javax.swing.JButton();
+        S15 = new javax.swing.JButton();
+        S16 = new javax.swing.JButton();
+        S17 = new javax.swing.JButton();
+        S18 = new javax.swing.JButton();
+        S19 = new javax.swing.JButton();
+        S20 = new javax.swing.JButton();
+        S21 = new javax.swing.JButton();
+        S22 = new javax.swing.JButton();
+        S23 = new javax.swing.JButton();
+        S24 = new javax.swing.JButton();
+        S25 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        S26 = new javax.swing.JButton();
+        S27 = new javax.swing.JButton();
+        S28 = new javax.swing.JButton();
+        S29 = new javax.swing.JButton();
+        S30 = new javax.swing.JButton();
+        S31 = new javax.swing.JButton();
+        S32 = new javax.swing.JButton();
+        S33 = new javax.swing.JButton();
+        S34 = new javax.swing.JButton();
+        S35 = new javax.swing.JButton();
+        S36 = new javax.swing.JButton();
+        S37 = new javax.swing.JButton();
+        S38 = new javax.swing.JButton();
+        S39 = new javax.swing.JButton();
+        S40 = new javax.swing.JButton();
+        S41 = new javax.swing.JButton();
+        S42 = new javax.swing.JButton();
+        S43 = new javax.swing.JButton();
+        S44 = new javax.swing.JButton();
+        S45 = new javax.swing.JButton();
+        S46 = new javax.swing.JButton();
+        S47 = new javax.swing.JButton();
+        S48 = new javax.swing.JButton();
+        S49 = new javax.swing.JButton();
+        S50 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        S51 = new javax.swing.JButton();
+        S52 = new javax.swing.JButton();
+        S53 = new javax.swing.JButton();
+        S54 = new javax.swing.JButton();
+        S55 = new javax.swing.JButton();
+        S56 = new javax.swing.JButton();
+        S57 = new javax.swing.JButton();
+        S58 = new javax.swing.JButton();
+        S59 = new javax.swing.JButton();
+        S60 = new javax.swing.JButton();
+        S61 = new javax.swing.JButton();
+        S62 = new javax.swing.JButton();
+        S63 = new javax.swing.JButton();
+        S64 = new javax.swing.JButton();
+        S65 = new javax.swing.JButton();
+        S66 = new javax.swing.JButton();
+        S67 = new javax.swing.JButton();
+        S68 = new javax.swing.JButton();
+        S69 = new javax.swing.JButton();
+        S70 = new javax.swing.JButton();
+        S71 = new javax.swing.JButton();
+        S72 = new javax.swing.JButton();
+        S73 = new javax.swing.JButton();
+        S74 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
         confirmationPage = new javax.swing.JPanel();
         mselectposterlbl = new javax.swing.JLabel();
         confirmConfirmationPageB = new javax.swing.JButton();
@@ -225,6 +545,7 @@ public class Home extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        backToHomeB = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -470,25 +791,338 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jPanel4.setBackground(new java.awt.Color(249, 235, 196));
+        jPanel4.setLayout(new java.awt.GridLayout(2, 2, 40, 40));
+
+        jLabel24.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel24.setText("Select Time :");
+        jPanel4.add(jLabel24);
+
+        timeslotComboBox.setBackground(new java.awt.Color(227, 183, 120));
+        timeslotComboBox.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        timeslotComboBox.setForeground(new java.awt.Color(102, 32, 42));
+        timeslotComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                timeslotComboBoxItemStateChanged(evt);
+            }
+        });
+        jPanel4.add(timeslotComboBox);
+
+        jLabel25.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel25.setText("Ticket Qty :");
+        jPanel4.add(jLabel25);
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel4.add(jTextField1);
+
+        jPanel5.setBackground(new java.awt.Color(249, 235, 196));
+        jPanel5.setLayout(new java.awt.GridLayout(5, 5, 10, 10));
+
+        S1.setText("1");
+        S1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(S1);
+
+        S2.setText("2");
+        S2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(S2);
+
+        S3.setText("3");
+        S3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(S3);
+
+        S4.setText("4");
+        jPanel5.add(S4);
+
+        S5.setText("5");
+        jPanel5.add(S5);
+
+        S6.setText("5");
+        jPanel5.add(S6);
+
+        S7.setText("6");
+        jPanel5.add(S7);
+
+        S8.setText("7");
+        jPanel5.add(S8);
+
+        S9.setText("8");
+        jPanel5.add(S9);
+
+        S10.setText("9");
+        jPanel5.add(S10);
+
+        S11.setText("10");
+        jPanel5.add(S11);
+
+        S12.setText("11");
+        jPanel5.add(S12);
+
+        S13.setText("12");
+        jPanel5.add(S13);
+
+        S14.setText("13");
+        jPanel5.add(S14);
+
+        S15.setText("14");
+        jPanel5.add(S15);
+
+        S16.setText("15");
+        jPanel5.add(S16);
+
+        S17.setText("16");
+        jPanel5.add(S17);
+
+        S18.setText("17");
+        jPanel5.add(S18);
+
+        S19.setText("18");
+        jPanel5.add(S19);
+
+        S20.setText("19");
+        jPanel5.add(S20);
+
+        S21.setText("21");
+        jPanel5.add(S21);
+
+        S22.setText("22");
+        jPanel5.add(S22);
+
+        S23.setText("23");
+        jPanel5.add(S23);
+
+        S24.setText("24");
+        jPanel5.add(S24);
+
+        S25.setText("25");
+        jPanel5.add(S25);
+
+        jPanel6.setBackground(new java.awt.Color(249, 235, 196));
+        jPanel6.setLayout(new java.awt.GridLayout(5, 5, 10, 10));
+
+        S26.setText("26");
+        jPanel6.add(S26);
+
+        S27.setText("27");
+        jPanel6.add(S27);
+
+        S28.setText("28");
+        jPanel6.add(S28);
+
+        S29.setText("29");
+        jPanel6.add(S29);
+
+        S30.setText("30");
+        jPanel6.add(S30);
+
+        S31.setText("31");
+        jPanel6.add(S31);
+
+        S32.setText("32");
+        jPanel6.add(S32);
+
+        S33.setText("33");
+        jPanel6.add(S33);
+
+        S34.setText("34");
+        jPanel6.add(S34);
+
+        S35.setText("35");
+        jPanel6.add(S35);
+
+        S36.setText("36");
+        jPanel6.add(S36);
+
+        S37.setText("37");
+        jPanel6.add(S37);
+
+        S38.setText("38");
+        jPanel6.add(S38);
+
+        S39.setText("39");
+        jPanel6.add(S39);
+
+        S40.setText("40");
+        jPanel6.add(S40);
+
+        S41.setText("41");
+        jPanel6.add(S41);
+
+        S42.setText("42");
+        jPanel6.add(S42);
+
+        S43.setText("43");
+        jPanel6.add(S43);
+
+        S44.setText("44");
+        jPanel6.add(S44);
+
+        S45.setText("45");
+        jPanel6.add(S45);
+
+        S46.setText("46");
+        jPanel6.add(S46);
+
+        S47.setText("47");
+        jPanel6.add(S47);
+
+        S48.setText("48");
+        jPanel6.add(S48);
+
+        S49.setText("49");
+        jPanel6.add(S49);
+
+        S50.setText("50");
+        jPanel6.add(S50);
+
+        jPanel7.setBackground(new java.awt.Color(249, 235, 196));
+        jPanel7.setLayout(new java.awt.GridLayout(4, 6, 10, 10));
+
+        S51.setText("51");
+        jPanel7.add(S51);
+
+        S52.setText("52");
+        jPanel7.add(S52);
+
+        S53.setText("53");
+        jPanel7.add(S53);
+
+        S54.setText("54");
+        jPanel7.add(S54);
+
+        S55.setText("55");
+        jPanel7.add(S55);
+
+        S56.setText("56");
+        jPanel7.add(S56);
+
+        S57.setText("57");
+        jPanel7.add(S57);
+
+        S58.setText("58");
+        jPanel7.add(S58);
+
+        S59.setText("59");
+        jPanel7.add(S59);
+
+        S60.setText("60");
+        jPanel7.add(S60);
+
+        S61.setText("61");
+        jPanel7.add(S61);
+
+        S62.setText("62");
+        jPanel7.add(S62);
+
+        S63.setText("63");
+        jPanel7.add(S63);
+
+        S64.setText("64");
+        jPanel7.add(S64);
+
+        S65.setText("65");
+        jPanel7.add(S65);
+
+        S66.setText("66");
+        jPanel7.add(S66);
+
+        S67.setText("67");
+        jPanel7.add(S67);
+
+        S68.setText("68");
+        jPanel7.add(S68);
+
+        S69.setText("69");
+        jPanel7.add(S69);
+
+        S70.setText("70");
+        jPanel7.add(S70);
+
+        S71.setText("71");
+        jPanel7.add(S71);
+
+        S72.setText("72");
+        jPanel7.add(S72);
+
+        S73.setText("73");
+        jPanel7.add(S73);
+
+        S74.setText("74");
+        jPanel7.add(S74);
+
+        jPanel8.setBackground(new java.awt.Color(102, 32, 42));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout moviePageLayout = new javax.swing.GroupLayout(moviePage);
         moviePage.setLayout(moviePageLayout);
         moviePageLayout.setHorizontalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePageLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(254, 254, 254))
             .addGroup(moviePageLayout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(backMoviePageB)
-                .addGap(194, 194, 194)
-                .addComponent(nextMoviePageB)
-                .addContainerGap(765, Short.MAX_VALUE))
+                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(moviePageLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(backMoviePageB)
+                        .addGap(98, 98, 98)
+                        .addComponent(nextMoviePageB))
+                    .addGroup(moviePageLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(134, 134, 134)
+                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(moviePageLayout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         moviePageLayout.setVerticalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePageLayout.createSequentialGroup()
-                .addGap(454, 454, 454)
-                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backMoviePageB)
-                    .addComponent(nextMoviePageB))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(moviePageLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(backMoviePageB)
+                            .addComponent(nextMoviePageB)))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(398, Short.MAX_VALUE))
         );
 
         Pages.add(moviePage);
@@ -699,31 +1333,47 @@ public class Home extends javax.swing.JFrame {
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/clapperboard.png"))); // NOI18N
 
+        backToHomeB.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        backToHomeB.setForeground(new java.awt.Color(102, 32, 42));
+        backToHomeB.setText("Back to Home");
+        backToHomeB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backToHomeB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backToHomeBMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout donePageLayout = new javax.swing.GroupLayout(donePage);
         donePage.setLayout(donePageLayout);
         donePageLayout.setHorizontalGroup(
             donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(donePageLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel22)
                 .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(donePageLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel22)
                         .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donePageLayout.createSequentialGroup()
-                                .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(donePageLayout.createSequentialGroup()
-                                        .addGap(49, 49, 49)
-                                        .addComponent(jLabel21))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, donePageLayout.createSequentialGroup()
-                                        .addGap(97, 97, 97)
-                                        .addComponent(jLabel20)))
-                                .addGap(93, 93, 93))))
-                    .addGroup(donePageLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(printDonePageB)))
-                .addGap(78, 78, 78)
+                            .addGroup(donePageLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donePageLayout.createSequentialGroup()
+                                        .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(donePageLayout.createSequentialGroup()
+                                                .addGap(49, 49, 49)
+                                                .addComponent(jLabel21))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, donePageLayout.createSequentialGroup()
+                                                .addGap(97, 97, 97)
+                                                .addComponent(jLabel20)))
+                                        .addGap(93, 93, 93))))
+                            .addGroup(donePageLayout.createSequentialGroup()
+                                .addGap(163, 163, 163)
+                                .addComponent(printDonePageB)))
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donePageLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backToHomeB)
+                        .addGap(305, 305, 305)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
@@ -744,7 +1394,9 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(printDonePageB)
-                        .addGap(101, 101, 101)))
+                        .addGap(26, 26, 26)
+                        .addComponent(backToHomeB)
+                        .addGap(32, 32, 32)))
                 .addContainerGap(479, Short.MAX_VALUE))
         );
 
@@ -773,6 +1425,7 @@ public class Home extends javax.swing.JFrame {
          allMoviesToArray();
          mname = movieList.get(0);
          setMovie(mname);
+         displayTimeSlot();
          displayMoviePanel();
          
         
@@ -783,6 +1436,7 @@ public class Home extends javax.swing.JFrame {
         allMoviesToArray();
         mname = movieList.get(1);
         setMovie(mname);
+        displayTimeSlot();
         displayMoviePanel();
 
         
@@ -793,6 +1447,7 @@ public class Home extends javax.swing.JFrame {
         allMoviesToArray();
         mname = movieList.get(2);
         setMovie(mname);
+        displayTimeSlot();
         displayMoviePanel();
         
     }//GEN-LAST:event_movie3BMouseClicked
@@ -802,6 +1457,7 @@ public class Home extends javax.swing.JFrame {
         allMoviesToArray();
         mname = movieList.get(3);
         setMovie(mname);
+        displayTimeSlot();
         displayMoviePanel();
         
     }//GEN-LAST:event_movie4BMouseClicked
@@ -813,8 +1469,13 @@ public class Home extends javax.swing.JFrame {
 
     private void nextMoviePageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextMoviePageBMouseClicked
         // TODO add your handling code here:
-        displayConfirmationPanel();
-        displaySelectedMovie();
+        if(clickseat < tcktqty){//tells the user if they still lack seat selection
+            JOptionPane.showMessageDialog(null, "pls select " + (tcktqty - clickseat)+ " more seat/s" );
+        }else{
+            displayConfirmationPanel();
+            displaySelectedMovie();
+        }
+        
     }//GEN-LAST:event_nextMoviePageBMouseClicked
 
     private void confirmConfirmationPageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmConfirmationPageBMouseClicked
@@ -855,6 +1516,56 @@ public class Home extends javax.swing.JFrame {
         this.setState(Login.ICONIFIED);
     }//GEN-LAST:event_JLabelMin1MouseClicked
 
+    private void backToHomeBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToHomeBMouseClicked
+        // TODO add your handling code here:
+        dispose();
+        new Start().setVisible(true);
+    }//GEN-LAST:event_backToHomeBMouseClicked
+
+    private void timeslotComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_timeslotComboBoxItemStateChanged
+        //get selected time
+        if(evt.getStateChange() == ItemEvent.SELECTED ){
+            String mtime = (String) timeslotComboBox.getSelectedItem();
+            setTime(mtime);
+        }
+    }//GEN-LAST:event_timeslotComboBoxItemStateChanged
+
+    private void S1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S1ActionPerformed
+        // TODO add your handling code here:
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            String snum = "S1";;
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S1.setEnabled(false);
+        }
+    }//GEN-LAST:event_S1ActionPerformed
+
+    private void S2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S2ActionPerformed
+        // TODO add your handling code here:
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            String snum = "S2";;
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S2.setEnabled(false);
+        }
+    }//GEN-LAST:event_S2ActionPerformed
+
+    private void S3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S3ActionPerformed
+        // TODO add your handling code here:
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            String snum = "S3";;
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S3.setEnabled(false);
+        }
+    }//GEN-LAST:event_S3ActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -894,8 +1605,83 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel JLabelMin1;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Pages;
+    private javax.swing.JButton S1;
+    private javax.swing.JButton S10;
+    private javax.swing.JButton S11;
+    private javax.swing.JButton S12;
+    private javax.swing.JButton S13;
+    private javax.swing.JButton S14;
+    private javax.swing.JButton S15;
+    private javax.swing.JButton S16;
+    private javax.swing.JButton S17;
+    private javax.swing.JButton S18;
+    private javax.swing.JButton S19;
+    private javax.swing.JButton S2;
+    private javax.swing.JButton S20;
+    private javax.swing.JButton S21;
+    private javax.swing.JButton S22;
+    private javax.swing.JButton S23;
+    private javax.swing.JButton S24;
+    private javax.swing.JButton S25;
+    private javax.swing.JButton S26;
+    private javax.swing.JButton S27;
+    private javax.swing.JButton S28;
+    private javax.swing.JButton S29;
+    private javax.swing.JButton S3;
+    private javax.swing.JButton S30;
+    private javax.swing.JButton S31;
+    private javax.swing.JButton S32;
+    private javax.swing.JButton S33;
+    private javax.swing.JButton S34;
+    private javax.swing.JButton S35;
+    private javax.swing.JButton S36;
+    private javax.swing.JButton S37;
+    private javax.swing.JButton S38;
+    private javax.swing.JButton S39;
+    private javax.swing.JButton S4;
+    private javax.swing.JButton S40;
+    private javax.swing.JButton S41;
+    private javax.swing.JButton S42;
+    private javax.swing.JButton S43;
+    private javax.swing.JButton S44;
+    private javax.swing.JButton S45;
+    private javax.swing.JButton S46;
+    private javax.swing.JButton S47;
+    private javax.swing.JButton S48;
+    private javax.swing.JButton S49;
+    private javax.swing.JButton S5;
+    private javax.swing.JButton S50;
+    private javax.swing.JButton S51;
+    private javax.swing.JButton S52;
+    private javax.swing.JButton S53;
+    private javax.swing.JButton S54;
+    private javax.swing.JButton S55;
+    private javax.swing.JButton S56;
+    private javax.swing.JButton S57;
+    private javax.swing.JButton S58;
+    private javax.swing.JButton S59;
+    private javax.swing.JButton S6;
+    private javax.swing.JButton S60;
+    private javax.swing.JButton S61;
+    private javax.swing.JButton S62;
+    private javax.swing.JButton S63;
+    private javax.swing.JButton S64;
+    private javax.swing.JButton S65;
+    private javax.swing.JButton S66;
+    private javax.swing.JButton S67;
+    private javax.swing.JButton S68;
+    private javax.swing.JButton S69;
+    private javax.swing.JButton S7;
+    private javax.swing.JButton S70;
+    private javax.swing.JButton S71;
+    private javax.swing.JButton S72;
+    private javax.swing.JButton S73;
+    private javax.swing.JButton S74;
+    private javax.swing.JButton S8;
+    private javax.swing.JButton S9;
     private javax.swing.JButton backConfirmationPageB;
     private javax.swing.JButton backMoviePageB;
+    private javax.swing.JLabel backToHomeB;
     private javax.swing.JButton confirmConfirmationPageB;
     private javax.swing.JLabel confirmation;
     private javax.swing.JPanel confirmationPage;
@@ -919,6 +1705,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -929,7 +1717,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton movie1B;
     private javax.swing.JButton movie2B;
     private javax.swing.JButton movie3B;
@@ -942,5 +1736,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton printDonePageB;
     private javax.swing.JTextArea receipttxt;
     private javax.swing.JLabel selectMovie;
+    private javax.swing.JComboBox<String> timeslotComboBox;
     // End of variables declaration//GEN-END:variables
 }

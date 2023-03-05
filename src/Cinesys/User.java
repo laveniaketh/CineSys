@@ -21,8 +21,6 @@ public class User {
     void setRepassword(String rpw){
         this.repassword = rpw;
     }
-   
-    
     public String getFirstname() {
         return firstname;
     }

@@ -426,24 +426,58 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanel7" min="-2" pref="345" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                      <Component id="backMoviePageB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
-                      <Component id="nextMoviePageB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="765" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <Component id="backMoviePageB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="nextMoviePageB" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="jPanel4" min="-2" pref="439" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel5" min="-2" pref="291" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jPanel6" min="-2" pref="291" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel8" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="backMoviePageB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nextMoviePageB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jPanel5" min="-2" pref="286" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel4" min="-2" pref="191" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="backMoviePageB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nextMoviePageB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jPanel6" min="-2" pref="286" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel7" min="-2" pref="220" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="398" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -489,6 +523,526 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nextMoviePageBMouseClicked"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel4">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c4" green="eb" red="f9" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="2"/>
+                <Property name="horizontalGap" type="int" value="40"/>
+                <Property name="rows" type="int" value="2"/>
+                <Property name="verticalGap" type="int" value="40"/>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Figtree" size="24" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="2a" green="20" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Select Time :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="timeslotComboBox">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="78" green="b7" red="e3" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Figtree" size="24" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="2a" green="20" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="timeslotComboBoxItemStateChanged"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel25">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Figtree" size="24" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="2a" green="20" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ticket Qty :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Figtree Light" size="24" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="2a" green="20" red="66" type="rgb"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c4" green="eb" red="f9" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="5"/>
+                <Property name="horizontalGap" type="int" value="10"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="verticalGap" type="int" value="10"/>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="S1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="S1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="S2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="2"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="S2ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="S3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="3"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="S3ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="S4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="4"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="5"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="5"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="6"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="7"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="8"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="9"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="10"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="11"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="12"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="13"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="14"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="15"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S17">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="16"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S18">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="17"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="18"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="19"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="21"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="22"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="23"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S24">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="24"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S25">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="25"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c4" green="eb" red="f9" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="5"/>
+                <Property name="horizontalGap" type="int" value="10"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="verticalGap" type="int" value="10"/>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="S26">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="26"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S27">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="27"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S28">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="28"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S29">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="29"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S30">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="30"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S31">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="31"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="32"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S33">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="33"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S34">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="34"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S35">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="35"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S36">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="36"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S37">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="37"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S38">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="38"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S39">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="39"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S40">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="40"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S41">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="41"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="42"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S43">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="43"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S44">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="44"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S45">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="45"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S46">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="46"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S47">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="47"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S48">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="48"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S49">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="49"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S50">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="50"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel7">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c4" green="eb" red="f9" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="6"/>
+                <Property name="horizontalGap" type="int" value="10"/>
+                <Property name="rows" type="int" value="4"/>
+                <Property name="verticalGap" type="int" value="10"/>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="S51">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="51"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S52">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="52"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S53">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="53"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S54">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="54"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S55">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="55"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S56">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="56"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S57">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="57"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S58">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="58"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S59">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="59"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S60">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="60"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S61">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="61"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S62">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="62"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S63">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="63"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S64">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="64"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S65">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="65"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S66">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="66"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S67">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="67"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S68">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="68"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S69">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="69"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S70">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="70"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S71">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="71"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S72">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="72"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S73">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="73"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="S74">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="74"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel8">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2a" green="20" red="66" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="confirmationPage">
@@ -849,34 +1403,43 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
-                                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
+                                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                                      <Component id="printDonePageB" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                              <Component id="printDonePageB" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="backToHomeB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="71" max="32767" attributes="0"/>
                   </Group>
@@ -900,7 +1463,9 @@
                               <Component id="jLabel20" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="printDonePageB" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="backToHomeB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="479" max="32767" attributes="0"/>
@@ -987,6 +1552,23 @@
                   <Image iconType="3" name="/Icons/clapperboard.png"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="backToHomeB">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Figtree" size="24" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2a" green="20" red="66" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back to Home"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backToHomeBMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
