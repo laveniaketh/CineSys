@@ -847,222 +847,577 @@ public class Home extends javax.swing.JFrame {
         jPanel5.add(S3);
 
         S4.setText("4");
+        S4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S4ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S4);
 
         S5.setText("5");
+        S5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S5ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S5);
 
-        S6.setText("5");
+        S6.setText("6");
+        S6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S6ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S6);
 
-        S7.setText("6");
+        S7.setText("7");
+        S7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S7ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S7);
 
-        S8.setText("7");
+        S8.setText("8");
+        S8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S8ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S8);
 
-        S9.setText("8");
+        S9.setText("9");
+        S9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S9ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S9);
 
-        S10.setText("9");
+        S10.setText("10");
+        S10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S10ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S10);
 
-        S11.setText("10");
+        S11.setText("11");
+        S11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S11ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S11);
 
-        S12.setText("11");
+        S12.setText("12");
+        S12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S12ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S12);
 
-        S13.setText("12");
+        S13.setText("13");
+        S13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S13ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S13);
 
-        S14.setText("13");
+        S14.setText("14");
+        S14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S14ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S14);
 
-        S15.setText("14");
+        S15.setText("15");
+        S15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S15ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S15);
 
-        S16.setText("15");
+        S16.setText("16");
+        S16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S16ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S16);
 
-        S17.setText("16");
+        S17.setText("17");
+        S17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S17ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S17);
 
-        S18.setText("17");
+        S18.setText("18");
+        S18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S18ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S18);
 
-        S19.setText("18");
+        S19.setText("19");
+        S19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S19ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S19);
 
-        S20.setText("19");
+        S20.setText("20");
+        S20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S20ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S20);
 
         S21.setText("21");
+        S21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S21ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S21);
 
         S22.setText("22");
+        S22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S22ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S22);
 
         S23.setText("23");
+        S23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S23ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S23);
 
         S24.setText("24");
+        S24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S24ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S24);
 
         S25.setText("25");
+        S25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S25ActionPerformed(evt);
+            }
+        });
         jPanel5.add(S25);
 
         jPanel6.setBackground(new java.awt.Color(249, 235, 196));
         jPanel6.setLayout(new java.awt.GridLayout(5, 5, 10, 10));
 
         S26.setText("26");
+        S26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S26ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S26);
 
         S27.setText("27");
+        S27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S27ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S27);
 
         S28.setText("28");
+        S28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S28ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S28);
 
         S29.setText("29");
+        S29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S29ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S29);
 
         S30.setText("30");
+        S30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S30ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S30);
 
         S31.setText("31");
+        S31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S31ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S31);
 
         S32.setText("32");
+        S32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S32ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S32);
 
         S33.setText("33");
+        S33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S33ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S33);
 
         S34.setText("34");
+        S34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S34ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S34);
 
         S35.setText("35");
+        S35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S35ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S35);
 
         S36.setText("36");
+        S36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S36ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S36);
 
         S37.setText("37");
+        S37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S37ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S37);
 
         S38.setText("38");
+        S38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S38ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S38);
 
         S39.setText("39");
+        S39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S39ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S39);
 
         S40.setText("40");
+        S40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S40ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S40);
 
         S41.setText("41");
+        S41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S41ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S41);
 
         S42.setText("42");
+        S42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S42ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S42);
 
         S43.setText("43");
+        S43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S43ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S43);
 
         S44.setText("44");
+        S44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S44ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S44);
 
         S45.setText("45");
+        S45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S45ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S45);
 
         S46.setText("46");
+        S46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S46ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S46);
 
         S47.setText("47");
+        S47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S47ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S47);
 
         S48.setText("48");
+        S48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S48ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S48);
 
         S49.setText("49");
+        S49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S49ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S49);
 
         S50.setText("50");
+        S50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S50ActionPerformed(evt);
+            }
+        });
         jPanel6.add(S50);
 
         jPanel7.setBackground(new java.awt.Color(249, 235, 196));
         jPanel7.setLayout(new java.awt.GridLayout(4, 6, 10, 10));
 
         S51.setText("51");
+        S51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S51ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S51);
 
         S52.setText("52");
+        S52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S52ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S52);
 
         S53.setText("53");
+        S53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S53ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S53);
 
         S54.setText("54");
+        S54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S54ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S54);
 
         S55.setText("55");
+        S55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S55ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S55);
 
         S56.setText("56");
+        S56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S56ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S56);
 
         S57.setText("57");
+        S57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S57ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S57);
 
         S58.setText("58");
+        S58.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S58ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S58);
 
         S59.setText("59");
+        S59.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S59ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S59);
 
         S60.setText("60");
+        S60.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S60ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S60);
 
         S61.setText("61");
+        S61.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S61ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S61);
 
         S62.setText("62");
+        S62.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S62ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S62);
 
         S63.setText("63");
+        S63.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S63ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S63);
 
         S64.setText("64");
+        S64.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S64ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S64);
 
         S65.setText("65");
+        S65.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S65ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S65);
 
         S66.setText("66");
+        S66.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S66ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S66);
 
         S67.setText("67");
+        S67.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S67ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S67);
 
         S68.setText("68");
+        S68.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S68ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S68);
 
         S69.setText("69");
+        S69.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S69ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S69);
 
         S70.setText("70");
+        S70.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S70ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S70);
 
         S71.setText("71");
+        S71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S71ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S71);
 
         S72.setText("72");
+        S72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S72ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S72);
 
         S73.setText("73");
+        S73.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S73ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S73);
 
         S74.setText("74");
+        S74.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S74ActionPerformed(evt);
+            }
+        });
         jPanel7.add(S74);
 
         jPanel8.setBackground(new java.awt.Color(102, 32, 42));
@@ -1531,11 +1886,11 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_timeslotComboBoxItemStateChanged
 
     private void S1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S1ActionPerformed
-        // TODO add your handling code here:
+        // disable the button if clicked and get the selected seat no
         seatLimiter();
         if(checkseat){
             clickseat++;
-            String snum = "S1";;
+            snum = "S1";
             setSeat(snum);
             seatsSelect[clickseat - 1] = getSeat();
             S1.setEnabled(false);
@@ -1543,11 +1898,11 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_S1ActionPerformed
 
     private void S2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S2ActionPerformed
-        // TODO add your handling code here:
+        // disable the button if clicked and get the selected seat no
         seatLimiter();
         if(checkseat){
             clickseat++;
-            String snum = "S2";;
+            snum = "S2";
             setSeat(snum);
             seatsSelect[clickseat - 1] = getSeat();
             S2.setEnabled(false);
@@ -1555,16 +1910,868 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_S2ActionPerformed
 
     private void S3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S3ActionPerformed
-        // TODO add your handling code here:
+        // disable the button if clicked and get the selected seat no
         seatLimiter();
         if(checkseat){
             clickseat++;
-            String snum = "S3";;
+            snum = "S3";
             setSeat(snum);
             seatsSelect[clickseat - 1] = getSeat();
             S3.setEnabled(false);
         }
     }//GEN-LAST:event_S3ActionPerformed
+
+    private void S4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S4ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S4";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S4.setEnabled(false);
+        }
+    }//GEN-LAST:event_S4ActionPerformed
+
+    private void S5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S5ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S5";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S5.setEnabled(false);
+        }
+    }//GEN-LAST:event_S5ActionPerformed
+
+    private void S6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S6ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S6";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S6.setEnabled(false);
+        }
+    }//GEN-LAST:event_S6ActionPerformed
+
+    private void S7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S7ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S7";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S7.setEnabled(false);
+        }
+    }//GEN-LAST:event_S7ActionPerformed
+
+    private void S8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S8ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S8";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S8.setEnabled(false);
+        }
+    }//GEN-LAST:event_S8ActionPerformed
+
+    private void S9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S9ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S9";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S9.setEnabled(false);
+        }
+    }//GEN-LAST:event_S9ActionPerformed
+
+    private void S10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S10ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S10";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S10.setEnabled(false);
+        }
+    }//GEN-LAST:event_S10ActionPerformed
+
+    private void S11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S11ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S11";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S11.setEnabled(false);
+        }
+    }//GEN-LAST:event_S11ActionPerformed
+
+    private void S12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S12ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S12";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S12.setEnabled(false);
+        }
+    }//GEN-LAST:event_S12ActionPerformed
+
+    private void S13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S13ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S13";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S13.setEnabled(false);
+        }
+    }//GEN-LAST:event_S13ActionPerformed
+
+    private void S14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S14ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S14";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S14.setEnabled(false);
+        }
+    }//GEN-LAST:event_S14ActionPerformed
+
+    private void S15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S15ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S15";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S15.setEnabled(false);
+        }
+    }//GEN-LAST:event_S15ActionPerformed
+
+    private void S16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S16ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S16";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S16.setEnabled(false);
+        }
+    }//GEN-LAST:event_S16ActionPerformed
+
+    private void S17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S17ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S17";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S17.setEnabled(false);
+        }
+    }//GEN-LAST:event_S17ActionPerformed
+
+    private void S18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S18ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S18";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S18.setEnabled(false);
+        }
+    }//GEN-LAST:event_S18ActionPerformed
+
+    private void S19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S19ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S19";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S19.setEnabled(false);
+        }
+    }//GEN-LAST:event_S19ActionPerformed
+
+    private void S20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S20ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S20";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S20.setEnabled(false);
+        }
+    }//GEN-LAST:event_S20ActionPerformed
+
+    private void S21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S21ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S21";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S21.setEnabled(false);
+        }
+    }//GEN-LAST:event_S21ActionPerformed
+
+    private void S22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S22ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S22";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S22.setEnabled(false);
+        }
+    }//GEN-LAST:event_S22ActionPerformed
+
+    private void S23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S23ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S23";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S23.setEnabled(false);
+        }
+    }//GEN-LAST:event_S23ActionPerformed
+
+    private void S24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S24ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S24";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S24.setEnabled(false);
+        }
+    }//GEN-LAST:event_S24ActionPerformed
+
+    private void S25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S25ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S25";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S25.setEnabled(false);
+        }
+    }//GEN-LAST:event_S25ActionPerformed
+
+    private void S26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S26ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "26";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S26.setEnabled(false);
+        }
+    }//GEN-LAST:event_S26ActionPerformed
+
+    private void S27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S27ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S27";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S27.setEnabled(false);
+        }
+    }//GEN-LAST:event_S27ActionPerformed
+
+    private void S28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S28ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S28";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S28.setEnabled(false);
+        }
+    }//GEN-LAST:event_S28ActionPerformed
+
+    private void S29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S29ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S29";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S29.setEnabled(false);
+        }
+    }//GEN-LAST:event_S29ActionPerformed
+
+    private void S30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S30ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S30";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S30.setEnabled(false);
+        }
+    }//GEN-LAST:event_S30ActionPerformed
+
+    private void S31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S31ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S31";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S31.setEnabled(false);
+        }
+    }//GEN-LAST:event_S31ActionPerformed
+
+    private void S32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S32ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S32";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S32.setEnabled(false);
+        }
+    }//GEN-LAST:event_S32ActionPerformed
+
+    private void S33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S33ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S33";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S33.setEnabled(false);
+        }
+    }//GEN-LAST:event_S33ActionPerformed
+
+    private void S34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S34ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S34";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S34.setEnabled(false);
+        }
+    }//GEN-LAST:event_S34ActionPerformed
+
+    private void S35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S35ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S35";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S35.setEnabled(false);
+        }
+    }//GEN-LAST:event_S35ActionPerformed
+
+    private void S36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S36ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S36";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S36.setEnabled(false);
+        }
+    }//GEN-LAST:event_S36ActionPerformed
+
+    private void S37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S37ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S37";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S37.setEnabled(false);
+        }
+    }//GEN-LAST:event_S37ActionPerformed
+
+    private void S38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S38ActionPerformed
+       // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S38";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S38.setEnabled(false);
+        }
+    }//GEN-LAST:event_S38ActionPerformed
+
+    private void S39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S39ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S39";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S39.setEnabled(false);
+        }
+    }//GEN-LAST:event_S39ActionPerformed
+
+    private void S40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S40ActionPerformed
+       // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S40";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S40.setEnabled(false);
+        }
+    }//GEN-LAST:event_S40ActionPerformed
+
+    private void S41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S41ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S41";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S41.setEnabled(false);
+        }
+    }//GEN-LAST:event_S41ActionPerformed
+
+    private void S42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S42ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S42";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S42.setEnabled(false);
+        }
+    }//GEN-LAST:event_S42ActionPerformed
+
+    private void S43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S43ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S43";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S43.setEnabled(false);
+        }
+    }//GEN-LAST:event_S43ActionPerformed
+
+    private void S44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S44ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S44";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S44.setEnabled(false);
+        }
+    }//GEN-LAST:event_S44ActionPerformed
+
+    private void S45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S45ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S45";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S45.setEnabled(false);
+        }
+    }//GEN-LAST:event_S45ActionPerformed
+
+    private void S46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S46ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S46";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S46.setEnabled(false);
+        }
+    }//GEN-LAST:event_S46ActionPerformed
+
+    private void S47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S47ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S47";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S47.setEnabled(false);
+        }
+    }//GEN-LAST:event_S47ActionPerformed
+
+    private void S48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S48ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S48";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S48.setEnabled(false);
+        }
+    }//GEN-LAST:event_S48ActionPerformed
+
+    private void S49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S49ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S49";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S49.setEnabled(false);
+        }
+    }//GEN-LAST:event_S49ActionPerformed
+
+    private void S50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S50ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S50";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S50.setEnabled(false);
+        }
+    }//GEN-LAST:event_S50ActionPerformed
+
+    private void S51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S51ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S51";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S51.setEnabled(false);
+        }
+    }//GEN-LAST:event_S51ActionPerformed
+
+    private void S52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S52ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S52";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S52.setEnabled(false);
+        }
+    }//GEN-LAST:event_S52ActionPerformed
+
+    private void S53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S53ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S53";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S53.setEnabled(false);
+        }
+    }//GEN-LAST:event_S53ActionPerformed
+
+    private void S54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S54ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S54";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S54.setEnabled(false);
+        }
+    }//GEN-LAST:event_S54ActionPerformed
+
+    private void S55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S55ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S55";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S55.setEnabled(false);
+        }
+    }//GEN-LAST:event_S55ActionPerformed
+
+    private void S56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S56ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S56";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S56.setEnabled(false);
+        }
+    }//GEN-LAST:event_S56ActionPerformed
+
+    private void S57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S57ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S57";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S57.setEnabled(false);
+        }
+    }//GEN-LAST:event_S57ActionPerformed
+
+    private void S58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S58ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S58";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S58.setEnabled(false);
+        }
+    }//GEN-LAST:event_S58ActionPerformed
+
+    private void S59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S59ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S59";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S59.setEnabled(false);
+        }
+    }//GEN-LAST:event_S59ActionPerformed
+
+    private void S60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S60ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S60";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S60.setEnabled(false);
+        }
+    }//GEN-LAST:event_S60ActionPerformed
+
+    private void S61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S61ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S61";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S61.setEnabled(false);
+        }
+    }//GEN-LAST:event_S61ActionPerformed
+
+    private void S62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S62ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S62";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S62.setEnabled(false);
+        }
+    }//GEN-LAST:event_S62ActionPerformed
+
+    private void S63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S63ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S63";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S63.setEnabled(false);
+        }
+    }//GEN-LAST:event_S63ActionPerformed
+
+    private void S64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S64ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S64";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S64.setEnabled(false);
+        }
+    }//GEN-LAST:event_S64ActionPerformed
+
+    private void S65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S65ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S65";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S65.setEnabled(false);
+        }
+    }//GEN-LAST:event_S65ActionPerformed
+
+    private void S66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S66ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S66";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S66.setEnabled(false);
+        }
+    }//GEN-LAST:event_S66ActionPerformed
+
+    private void S67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S67ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S67";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S67.setEnabled(false);
+        }
+    }//GEN-LAST:event_S67ActionPerformed
+
+    private void S68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S68ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S68";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S68.setEnabled(false);
+        }
+    }//GEN-LAST:event_S68ActionPerformed
+
+    private void S69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S69ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S69";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S69.setEnabled(false);
+        }
+    }//GEN-LAST:event_S69ActionPerformed
+
+    private void S70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S70ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S70";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S70.setEnabled(false);
+        }
+    }//GEN-LAST:event_S70ActionPerformed
+
+    private void S71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S71ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S71";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S71.setEnabled(false);
+        }
+    }//GEN-LAST:event_S71ActionPerformed
+
+    private void S72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S72ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S72";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S72.setEnabled(false);
+        }
+    }//GEN-LAST:event_S72ActionPerformed
+
+    private void S73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S73ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S73";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S73.setEnabled(false);
+        }
+    }//GEN-LAST:event_S73ActionPerformed
+
+    private void S74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S74ActionPerformed
+        // disable the button if clicked and get the selected seat no
+        seatLimiter();
+        if(checkseat){
+            clickseat++;
+            snum = "S74";
+            setSeat(snum);
+            seatsSelect[clickseat - 1] = getSeat();
+            S74.setEnabled(false);
+        }
+    }//GEN-LAST:event_S74ActionPerformed
 
 
     public static void main(String args[]) {
