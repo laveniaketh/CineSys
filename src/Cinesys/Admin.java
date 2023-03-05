@@ -1,5 +1,4 @@
 package Cinesys;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -11,6 +10,7 @@ import java.sql.PreparedStatement;
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.proteanit.sql.DbUtils;
@@ -28,10 +28,9 @@ public class Admin extends javax.swing.JFrame {
         Database.connect();
         movielist_load();
         tab1.setBackground(new Color(238,214,194));
-        first.setVisible(true);
-        second.setVisible(false);
-        third.setVisible(false);
-        fourth.setVisible(false);
+        dashboardP.setVisible(true);
+        customersP.setVisible(false);
+        editscreeningP.setVisible(false);
         this.setLocationRelativeTo(null); //center fom in the screen
         nowShowingPosters();
         try {
@@ -67,59 +66,49 @@ public class Admin extends javax.swing.JFrame {
     }
     
     void nowShowingPosters(){
-         try {
-            ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
-            ps.setString(1, "Parasite");
-            rs = ps.executeQuery();
-            if(rs.next() == true){
-                byte[] img = rs.getBytes(1);
-                ImageIcon imageIcon1 = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter1.getWidth(),lblposter1.getHeight(), Image.SCALE_SMOOTH));
-                lblposter1.setIcon(imageIcon1);
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        //show movie posters at the dashboard
+        ArrayList <String> movieList = new ArrayList();
         try {
-            ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
-            ps.setString(1, "Puss in Boots");
+            ps = Database.connect().prepareStatement("SELECT * FROM `movielist`");
             rs = ps.executeQuery();
-            if(rs.next() == true){
-                byte[] img = rs.getBytes(1);
-                ImageIcon imageIcon2 = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter2.getWidth(),lblposter2.getHeight(), Image.SCALE_SMOOTH));
-                lblposter2.setIcon(imageIcon2);
+            while(rs.next()){
+                movieList.add(rs.getString("Movie Title"));  
             }
         } catch (SQLException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
-            ps.setString(1, "Interstellar");
-            rs = ps.executeQuery();
-            if(rs.next() == true){
-                byte[] img = rs.getBytes(1);
-                ImageIcon imageIcon3 = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter3.getWidth(),lblposter3.getHeight(), Image.SCALE_SMOOTH));
-                lblposter3.setIcon(imageIcon3);
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        String mname = "";
+        for(int i = 0 ; i < movieList.size(); i++){
+            mname = movieList.get(i);
+                try {
+                    ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
+                    ps.setString(1, mname);
+                    rs = ps.executeQuery();
+                    while(rs.next() == true){
+                        if(i == 0){
+                            byte[] img = rs.getBytes(1);
+                            ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter1.getWidth(),lblposter1.getHeight(), Image.SCALE_SMOOTH));
+                            lblposter1.setIcon(imageIcon);
+                        }else if ( i == 1){
+                            byte[] img = rs.getBytes(1);
+                            ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter2.getWidth(),lblposter2.getHeight(), Image.SCALE_SMOOTH));
+                            lblposter2.setIcon(imageIcon);   
+                        }else if (i ==2){
+                            byte[] img = rs.getBytes(1);
+                            ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter3.getWidth(),lblposter3.getHeight(), Image.SCALE_SMOOTH));
+                            lblposter3.setIcon(imageIcon);  
+                        }else if( i == 3){
+                            byte[] img = rs.getBytes(1);
+                            ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter4.getWidth(),lblposter4.getHeight(), Image.SCALE_SMOOTH));
+                            lblposter4.setIcon(imageIcon);  
+                        }
+                        
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
-        try {
-            ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
-             ps.setString(1, "Fallen Angels");
-             rs = ps.executeQuery();
-             if(rs.next() == true){
-                 byte[] img = rs.getBytes(1);
-                 ImageIcon imageIcon4 = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter4.getWidth(),lblposter4.getHeight(), Image.SCALE_SMOOTH));
-                lblposter4.setIcon(imageIcon4);
-             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+ }
      //this will display the movie list table
     void movielist_load(){
         try {
@@ -161,7 +150,7 @@ public class Admin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        first = new javax.swing.JPanel();
+        dashboardP = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lbltotalsales = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -176,14 +165,14 @@ public class Admin extends javax.swing.JFrame {
         lblposter2 = new javax.swing.JLabel();
         lblposter3 = new javax.swing.JLabel();
         lblposter4 = new javax.swing.JLabel();
-        second = new javax.swing.JPanel();
+        customersP = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         customertable = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         movielistcbbox = new javax.swing.JComboBox<>();
         timelistcbbox = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        third = new javax.swing.JPanel();
+        editscreeningP = new javax.swing.JPanel();
         lbl_image = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
@@ -202,7 +191,6 @@ public class Admin extends javax.swing.JFrame {
         txtts3 = new javax.swing.JTextField();
         uploadB = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
-        fourth = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -389,7 +377,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new javax.swing.OverlayLayout(jPanel2));
 
-        first.setBackground(new java.awt.Color(238, 214, 194));
+        dashboardP.setBackground(new java.awt.Color(238, 214, 194));
 
         jPanel3.setBackground(new java.awt.Color(227, 183, 120));
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
@@ -445,13 +433,13 @@ public class Admin extends javax.swing.JFrame {
         lblposter4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel5.add(lblposter4);
 
-        javax.swing.GroupLayout firstLayout = new javax.swing.GroupLayout(first);
-        first.setLayout(firstLayout);
-        firstLayout.setHorizontalGroup(
-            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstLayout.createSequentialGroup()
-                .addGroup(firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(firstLayout.createSequentialGroup()
+        javax.swing.GroupLayout dashboardPLayout = new javax.swing.GroupLayout(dashboardP);
+        dashboardP.setLayout(dashboardPLayout);
+        dashboardPLayout.setHorizontalGroup(
+            dashboardPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPLayout.createSequentialGroup()
+                .addGroup(dashboardPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dashboardPLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jLabel16)
                         .addGap(26, 26, 26)
@@ -460,21 +448,21 @@ public class Admin extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addGap(31, 31, 31)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(firstLayout.createSequentialGroup()
+                    .addGroup(dashboardPLayout.createSequentialGroup()
                         .addGap(374, 374, 374)
                         .addComponent(jLabel17))
-                    .addGroup(firstLayout.createSequentialGroup()
+                    .addGroup(dashboardPLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
-        firstLayout.setVerticalGroup(
-            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstLayout.createSequentialGroup()
+        dashboardPLayout.setVerticalGroup(
+            dashboardPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dashboardPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(firstLayout.createSequentialGroup()
+                    .addGroup(dashboardPLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -486,9 +474,9 @@ public class Admin extends javax.swing.JFrame {
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
-        jPanel2.add(first);
+        jPanel2.add(dashboardP);
 
-        second.setBackground(new java.awt.Color(238, 214, 194));
+        customersP.setBackground(new java.awt.Color(238, 214, 194));
 
         customertable.setBackground(new java.awt.Color(255, 255, 255));
         customertable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -540,43 +528,44 @@ public class Admin extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(102, 32, 42));
         jLabel12.setText("Time:");
 
-        javax.swing.GroupLayout secondLayout = new javax.swing.GroupLayout(second);
-        second.setLayout(secondLayout);
-        secondLayout.setHorizontalGroup(
-            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondLayout.createSequentialGroup()
+        javax.swing.GroupLayout customersPLayout = new javax.swing.GroupLayout(customersP);
+        customersP.setLayout(customersPLayout);
+        customersPLayout.setHorizontalGroup(
+            customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customersPLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addGroup(secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(57, 57, 57)
+                .addGroup(customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(movielistcbbox, 0, 260, Short.MAX_VALUE)
-                    .addComponent(timelistcbbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(167, 167, 167))
+                .addGroup(customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(movielistcbbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(timelistcbbox, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(182, 182, 182))
         );
-        secondLayout.setVerticalGroup(
-            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondLayout.createSequentialGroup()
+        customersPLayout.setVerticalGroup(
+            customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customersPLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addGroup(secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(secondLayout.createSequentialGroup()
-                        .addGroup(secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(movielistcbbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGap(36, 36, 36)
-                        .addGroup(secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(timelistcbbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customersPLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(movielistcbbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(36, 36, 36)
+                .addGroup(customersPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timelistcbbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(319, 319, 319))
         );
 
-        jPanel2.add(second);
+        jPanel2.add(customersP);
 
-        third.setBackground(new java.awt.Color(238, 214, 194));
+        editscreeningP.setBackground(new java.awt.Color(238, 214, 194));
 
         lbl_image.setBackground(new java.awt.Color(51, 51, 51));
         lbl_image.setForeground(new java.awt.Color(153, 51, 255));
@@ -695,114 +684,99 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout thirdLayout = new javax.swing.GroupLayout(third);
-        third.setLayout(thirdLayout);
-        thirdLayout.setHorizontalGroup(
-            thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdLayout.createSequentialGroup()
-                .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(thirdLayout.createSequentialGroup()
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(thirdLayout.createSequentialGroup()
+        javax.swing.GroupLayout editscreeningPLayout = new javax.swing.GroupLayout(editscreeningP);
+        editscreeningP.setLayout(editscreeningPLayout);
+        editscreeningPLayout.setHorizontalGroup(
+            editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editscreeningPLayout.createSequentialGroup()
+                .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editscreeningPLayout.createSequentialGroup()
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editscreeningPLayout.createSequentialGroup()
                                 .addGap(131, 131, 131)
                                 .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(thirdLayout.createSequentialGroup()
+                            .addGroup(editscreeningPLayout.createSequentialGroup()
                                 .addGap(174, 174, 174)
                                 .addComponent(uploadB)))
                         .addGap(87, 87, 87)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(thirdLayout.createSequentialGroup()
-                                    .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(editscreeningPLayout.createSequentialGroup()
+                                    .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2)
                                         .addComponent(jLabel3)
-                                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel8)
                                             .addComponent(jLabel4))
                                         .addComponent(jLabel1))
                                     .addGap(100, 100, 100)
-                                    .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(thirdLayout.createSequentialGroup()
+                                    .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(editscreeningPLayout.createSequentialGroup()
                                             .addComponent(txtmid, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(searchButton))
-                                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtmname, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtts2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtts1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(txtts3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdLayout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editscreeningPLayout.createSequentialGroup()
                                     .addGap(221, 221, 221)
                                     .addComponent(addButton)
                                     .addGap(18, 18, 18)
                                     .addComponent(deleteButton)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editscreeningPLayout.createSequentialGroup()
                                 .addComponent(updateButton)
                                 .addGap(65, 65, 65))))
-                    .addGroup(thirdLayout.createSequentialGroup()
+                    .addGroup(editscreeningPLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
-        thirdLayout.setVerticalGroup(
-            thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(thirdLayout.createSequentialGroup()
+        editscreeningPLayout.setVerticalGroup(
+            editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editscreeningPLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdLayout.createSequentialGroup()
+                .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editscreeningPLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtmid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchButton))
                         .addGap(41, 41, 41)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtmname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtts1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(17, 17, 17)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtts2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtts3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addGap(35, 35, 35)
-                        .addGroup(thirdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(editscreeningPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addButton)
                             .addComponent(deleteButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(updateButton)
                         .addGap(120, 120, 120))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, thirdLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editscreeningPLayout.createSequentialGroup()
                         .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(uploadB)
                         .addGap(139, 139, 139))))
         );
 
-        jPanel2.add(third);
-
-        fourth.setBackground(new java.awt.Color(239, 220, 204));
-
-        javax.swing.GroupLayout fourthLayout = new javax.swing.GroupLayout(fourth);
-        fourth.setLayout(fourthLayout);
-        fourthLayout.setHorizontalGroup(
-            fourthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1176, Short.MAX_VALUE)
-        );
-        fourthLayout.setVerticalGroup(
-            fourthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(fourth);
+        jPanel2.add(editscreeningP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -823,10 +797,9 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1MouseClicked
-        first.setVisible(true);
-        second.setVisible(false);
-        third.setVisible(false);
-        fourth.setVisible(false);
+        dashboardP.setVisible(true);
+        customersP.setVisible(false);
+        editscreeningP.setVisible(false);
         tab1.setBackground(new Color(238,214,194));
         tab2.setBackground(new Color (227,183,120));
         tab3.setBackground(new Color (227,183,120));
@@ -835,10 +808,9 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tab1MouseClicked
 
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
-        first.setVisible(false);
-        second.setVisible(true);
-        third.setVisible(false);
-        fourth.setVisible(false);
+        dashboardP.setVisible(false);
+        customersP.setVisible(true);
+        editscreeningP.setVisible(false);
         tab2.setBackground(new Color(238,214,194));
         tab1.setBackground(new Color (227,183,120));
         tab3.setBackground(new Color (227,183,120));
@@ -846,10 +818,9 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tab2MouseClicked
 
     private void tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3MouseClicked
-        third.setVisible(true);
-        first.setVisible(false);
-        second.setVisible(false);
-        fourth.setVisible(false);
+        editscreeningP.setVisible(true);
+        dashboardP.setVisible(false);
+        customersP.setVisible(false);
         tab3.setBackground(new Color(238,214,194));
         tab1.setBackground(new Color (227,183,120));
         tab2.setBackground(new Color (227,183,120));
@@ -857,14 +828,8 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tab3MouseClicked
 
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
-        fourth.setVisible(true);
-        first.setVisible(false);
-        second.setVisible(false);
-        third.setVisible(false);
-        tab4.setBackground(new Color(239,220,204));
-        tab1.setBackground(new Color (227,183,120));
-        tab2.setBackground(new Color (227,183,120));
-        tab3.setBackground(new Color (227,183,120));
+        //to close the admin page
+        this.setVisible(false);
     }//GEN-LAST:event_tab4MouseClicked
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
@@ -905,28 +870,46 @@ public class Admin extends javax.swing.JFrame {
         ts1 = txtts1.getText();
         ts2 = txtts2.getText();
         ts3 = txtts3.getText();
-        try{
-            ps = Database.connect().prepareStatement("UPDATE `movielist` SET `Movie Title`= ?,`Timeslot 1`= ?,`Timeslot 2`= ?,`Timeslot 3`= ?,`image`= ? WHERE `movieID` = ?");
+        
+        
+        try {
+            ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`= ?");
             ps.setString(1, mname);
-            ps.setString(2, ts1);
-            ps.setString(3, ts2);
-            ps.setString(4, ts3);
-            ps.setBytes(5, person_image);
-            ps.setString(6, mid);
+            rs = ps.executeQuery();
+             if(rs.next() == true){
+                 byte[] img = rs.getBytes(1);
+                 ImageIcon imageIcon4 = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter4.getWidth(),lblposter4.getHeight(), Image.SCALE_SMOOTH));
+                lblposter4.setIcon(imageIcon4);
+                try{
+                    ps = Database.connect().prepareStatement("UPDATE `movielist` SET `Movie Title`= ?,`Timeslot 1`= ?,`Timeslot 2`= ?,`Timeslot 3`= ?,`image`= ? WHERE `movieID` = ?");
+                    ps.setString(1, mname);
+                    ps.setString(2, ts1);
+                    ps.setString(3, ts2);
+                    ps.setString(4, ts3);
+                    ps.setBytes(5, img);
+                    ps.setString(6, mid);
 
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Record Updated");
-            movielist_load();
-            txtmname.setText("");
-            txtts1.setText("");
-            txtts2.setText("");
-            txtts3.setText("");
-            txtmid.setText("");
-            txtmname.requestFocus();
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null,"Record Updated");
+                    movielist_load();
+                    txtmname.setText("");
+                    txtts1.setText("");
+                    txtts2.setText("");
+                    txtts3.setText("");
+                    txtmid.setText("");
+                    txtmname.requestFocus();
 
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                
+             }
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -952,7 +935,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void uploadBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadBActionPerformed
-        // TODO add your handling code here:
+        //to choose and upload movie posters
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
@@ -1083,12 +1066,13 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JLabel customers;
+    private javax.swing.JPanel customersP;
     private javax.swing.JTable customertable;
     private javax.swing.JLabel dashboard;
+    private javax.swing.JPanel dashboardP;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel edit;
-    private javax.swing.JPanel first;
-    private javax.swing.JPanel fourth;
+    private javax.swing.JPanel editscreeningP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1120,13 +1104,11 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> movielistcbbox;
     private javax.swing.JTable movietable;
     private javax.swing.JButton searchButton;
-    private javax.swing.JPanel second;
     private javax.swing.JLabel signout;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
     private javax.swing.JPanel tab4;
-    private javax.swing.JPanel third;
     private javax.swing.JLabel ticketlbl;
     private javax.swing.JComboBox<String> timelistcbbox;
     private javax.swing.JTextField txtmid;

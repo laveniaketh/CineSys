@@ -14,7 +14,7 @@ public class Login extends javax.swing.JFrame {
     PreparedStatement ps;
      ResultSet rs;
    
-    User ou = new OldUser();
+    User ou = new User();
     
        void loginAction(){
            ou.setUsername(tfusername.getText());
@@ -35,11 +35,12 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid username or password.");
                 }
         } catch (SQLException ex) {
-            Logger.getLogger(OldUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }     
     }
     
     public Login() {
+        this.ou = new User();
         initComponents();
         this.setLocationRelativeTo(null); //center fom in the screen
        

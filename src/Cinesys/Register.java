@@ -1,5 +1,4 @@
 package Cinesys;
-import java.awt.Color;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ public class Register extends javax.swing.JFrame {
     int positionX = 0, positionY = 0;
     PreparedStatement ps;
     ResultSet rs;
-    User nu = new NewUser();
+    User nu = new User();
     
     void registerAction () {
         // Creating a new account
@@ -245,7 +244,6 @@ public class Register extends javax.swing.JFrame {
         pfPassword.setFont(new java.awt.Font("Figtree Light", 0, 14)); // NOI18N
         pfPassword.setForeground(new java.awt.Color(102, 32, 42));
         pfPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
-        pfPassword.setEchoChar('\u0000');
         jPanel10.add(pfPassword, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 117, -1));
@@ -263,7 +261,6 @@ public class Register extends javax.swing.JFrame {
         pfConfirmPassword.setFont(new java.awt.Font("Figtree Light", 0, 14)); // NOI18N
         pfConfirmPassword.setForeground(new java.awt.Color(102, 32, 42));
         pfConfirmPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 2, 0, new java.awt.Color(102, 32, 42)));
-        pfConfirmPassword.setEchoChar('\u0000');
         jPanel12.add(pfConfirmPassword, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));

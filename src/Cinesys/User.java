@@ -1,11 +1,10 @@
 
 package Cinesys;
 
-
 public class User {
      
     
-    String firstname,lastname,username,password,repassword;
+    private String firstname,lastname,username,password,repassword;
     
     void setFirstname(String fn){
         this.firstname = fn;
