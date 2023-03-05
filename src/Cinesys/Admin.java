@@ -25,26 +25,37 @@ public class Admin extends javax.swing.JFrame {
    
     public Admin() {
         initComponents();
+        this.setLocationRelativeTo(null); //center fom in the screen
         Database.connect();
         movielist_load();
+        displayDashboard();
+        nowShowingPosters();
+        addMoviesToCbBox();
+        ticketSoldAndSales();
+    }
+    
+    void displayDashboard(){
+        //the first panel that will display first
         tab1.setBackground(new Color(238,214,194));
         dashboardP.setVisible(true);
         customersP.setVisible(false);
         editscreeningP.setVisible(false);
-        this.setLocationRelativeTo(null); //center fom in the screen
-        nowShowingPosters();
+    }
+    
+    void addMoviesToCbBox(){ // add all the movies from the database to the movielist combobox
         try {
             ps = Database.connect().prepareStatement("SELECT * FROM `movielist`");
             rs = ps.executeQuery();
                 while(rs.next()){
                     movielistcbbox.addItem(rs.getString("Movie Title")); 
                 }
-
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-        try {
-            // to count and display number of tickets sold
+    }
+    
+    void ticketSoldAndSales(){// to count and display number of tickets sold
+         try {
             ps = Database.connect().prepareStatement("SELECT COUNT(`Ticket No.`) FROM customerlist;");
             rs = ps.executeQuery();
             if(rs.next()){
@@ -54,19 +65,12 @@ public class Admin extends javax.swing.JFrame {
                 //to calculate and display the total sales;
                 int total = (rowCount * 200);
                 lbltotalsales.setText(Integer. toString(total));
-                
             }
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
+            }
     }
-    
-    void nowShowingPosters(){
-        //show movie posters at the dashboard
+    void nowShowingPosters(){ //show movie posters at the dashboard
         ArrayList <String> movieList = new ArrayList();
         try {
             ps = Database.connect().prepareStatement("SELECT * FROM `movielist`");
@@ -101,16 +105,15 @@ public class Admin extends javax.swing.JFrame {
                             byte[] img = rs.getBytes(1);
                             ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lblposter4.getWidth(),lblposter4.getHeight(), Image.SCALE_SMOOTH));
                             lblposter4.setIcon(imageIcon);  
-                        }
-                        
+                        } 
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
  }
-     //this will display the movie list table
-    void movielist_load(){
+
+    void movielist_load(){ //this will display the movie list table
         try {
             ps = Database.connect().prepareStatement("SELECT `movieID`, `Movie Title`, `Timeslot 1`, `Timeslot 2`, `Timeslot 3` FROM `movielist` ");
             ResultSet rs = ps.executeQuery();
@@ -118,11 +121,8 @@ public class Admin extends javax.swing.JFrame {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-    }
-    
-    //this will display the customer list table
-    void customerlist_load (){
+    } 
+    void customerlist_load (){ //this will display the customer list table
         try {
             ps = Database.connect().prepareStatement("SELECT * FROM `customerlist`");
             ResultSet rs = ps.executeQuery();
@@ -131,8 +131,7 @@ public class Admin extends javax.swing.JFrame {
             throw new RuntimeException(e);
         }
     }
-
- 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -797,6 +796,7 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1MouseClicked
+        //when selected, the tab will change color and makes the assigned panel visible at the page
         dashboardP.setVisible(true);
         customersP.setVisible(false);
         editscreeningP.setVisible(false);
@@ -808,6 +808,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tab1MouseClicked
 
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
+        //when selected, the tab will change color and makes the assigned panel visible at the page
         dashboardP.setVisible(false);
         customersP.setVisible(true);
         editscreeningP.setVisible(false);
@@ -818,6 +819,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_tab2MouseClicked
 
     private void tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3MouseClicked
+        //when selected, the tab will change color and makes the assigned panel visible at the page
         editscreeningP.setVisible(true);
         dashboardP.setVisible(false);
         customersP.setVisible(false);
@@ -855,8 +857,8 @@ public class Admin extends javax.swing.JFrame {
             txtts1.setText("");
             txtts2.setText("");
             txtts3.setText("");
+            lbl_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/poster.png")));
             txtmname.requestFocus();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -870,8 +872,6 @@ public class Admin extends javax.swing.JFrame {
         ts1 = txtts1.getText();
         ts2 = txtts2.getText();
         ts3 = txtts3.getText();
-        
-        
         try {
             ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`= ?");
             ps.setString(1, mname);
@@ -897,19 +897,16 @@ public class Admin extends javax.swing.JFrame {
                     txtts2.setText("");
                     txtts3.setText("");
                     txtmid.setText("");
+                    lbl_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/poster.png")));
                     txtmname.requestFocus();
 
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
-                }
-                
+                }  
              }
         } catch (SQLException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
+        }      
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -927,6 +924,7 @@ public class Admin extends javax.swing.JFrame {
             txtmname.setText("");
             txtts1.setText("");
             txtts2.setText("");
+            lbl_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/poster.png")));
             txtts3.requestFocus();
 
         } catch (SQLException ex) {
@@ -966,9 +964,7 @@ public class Admin extends javax.swing.JFrame {
             ps = Database.connect().prepareStatement("SELECT `Movie Title`, `Timeslot 1`, `Timeslot 2`, `Timeslot 3`, `image` FROM `movielist` WHERE `movieID` = ?");
             ps.setString(1, mid);
             ResultSet rs = ps.executeQuery();
-
             if(rs.next() == true){
-
                 mname = rs.getString(1);
                 ts1 = rs.getString(2);
                 ts2 = rs.getString(3);
@@ -981,7 +977,6 @@ public class Admin extends javax.swing.JFrame {
                 txtts1.setText(ts1);
                 txtts2.setText(ts2);
                 txtts3.setText(ts3);
-
             }
             else{
                 txtmname.setText("");
@@ -1004,9 +999,7 @@ public class Admin extends javax.swing.JFrame {
             String selectedMovie = (String) movielistcbbox.getSelectedItem();
             if(selectedMovie.equals("All Movies")){
                 customerlist_load();
-
             }else{
-
                 String ts1,ts2,ts3;
                 try {
                     ps = Database.connect().prepareStatement("SELECT `Timeslot 1`, `Timeslot 2`, `Timeslot 3`, `image` FROM `movielist` WHERE `Movie Title` = ?");
@@ -1020,14 +1013,11 @@ public class Admin extends javax.swing.JFrame {
                         timelistcbbox.addItem(ts1);
                         timelistcbbox.addItem(ts2);
                         timelistcbbox.addItem(ts3);
-
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-
             }
-
         }
     }//GEN-LAST:event_movielistcbboxItemStateChanged
 
@@ -1036,8 +1026,6 @@ public class Admin extends javax.swing.JFrame {
         if(evt.getStateChange() == ItemEvent.SELECTED ){
             String rmovie = (String) movielistcbbox.getSelectedItem();
             String rtime = (String) timelistcbbox.getSelectedItem();
-
-            
             try {
                 ps = Database.connect().prepareStatement("SELECT * FROM `customerlist` WHERE `Movie Ttile`= ? AND `Time` = ?");
                 ps.setString(1, rmovie);
@@ -1047,12 +1035,9 @@ public class Admin extends javax.swing.JFrame {
                 customertable.setModel(DbUtils.resultSetToTableModel(rs));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-                
-            
+            }  
         }
     }//GEN-LAST:event_timelistcbboxItemStateChanged
-
 
     public static void main(String args[]) {
         
