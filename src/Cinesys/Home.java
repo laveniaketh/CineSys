@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.print.*;
 
 
 public class Home extends javax.swing.JFrame {
@@ -142,6 +143,30 @@ public class Home extends javax.swing.JFrame {
         }
                
     }
+    
+    void generateReceipt(){
+        //to generate receipt
+        receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
+        receipttxt.setText(receipttxt.getText()+ "                        CINESYS              \n");
+        receipttxt.setText(receipttxt.getText()+ "CineSys Inc.                           \n");
+        receipttxt.setText(receipttxt.getText()+ "Davao City, Philippines                \n");
+        receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
+        receipttxt.setText(receipttxt.getText()+ "                        RECEIPT              \n");
+        receipttxt.setText(receipttxt.getText()+ "MOVIE     :\n");
+        receipttxt.setText(receipttxt.getText()+ "TIME      :\n");
+        receipttxt.setText(receipttxt.getText()+ "TICKETID  :\n");
+        receipttxt.setText(receipttxt.getText()+ "SEAT      :\n");
+        receipttxt.setText(receipttxt.getText()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
+        receipttxt.setText(receipttxt.getText()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
+        receipttxt.setText(receipttxt.getText()+ "TOTAL  :\n");
+        
+        
+        
+        
+    }
 
 
     @SuppressWarnings("unchecked")
@@ -151,10 +176,14 @@ public class Home extends javax.swing.JFrame {
         Menu = new javax.swing.JPanel();
         movieTab = new javax.swing.JPanel();
         selectMovie = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         confirmationTab = new javax.swing.JPanel();
         confirmation = new javax.swing.JLabel();
         doneTab = new javax.swing.JPanel();
         done = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        JLabelClose = new javax.swing.JLabel();
+        JLabelMin1 = new javax.swing.JLabel();
         Pages = new javax.swing.JPanel();
         movieSelectPage = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -170,10 +199,32 @@ public class Home extends javax.swing.JFrame {
         mselectposterlbl = new javax.swing.JLabel();
         confirmConfirmationPageB = new javax.swing.JButton();
         backConfirmationPageB = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         donePage = new javax.swing.JPanel();
-        confirmConfirmationPageB1 = new javax.swing.JButton();
+        printDonePageB = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        receipttxt = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -203,6 +254,8 @@ public class Home extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(selectMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cineSys150.png"))); // NOI18N
 
         confirmationTab.setBackground(new java.awt.Color(200, 120, 47));
         confirmationTab.setPreferredSize(new java.awt.Dimension(150, 25));
@@ -244,27 +297,82 @@ public class Home extends javax.swing.JFrame {
             .addComponent(done, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jLabel23.setFont(new java.awt.Font("Figtree Light", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/admin.png"))); // NOI18N
+        jLabel23.setText("Admin");
+        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+
+        JLabelClose.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JLabelClose.setForeground(new java.awt.Color(102, 32, 42));
+        JLabelClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8_close_30px.png"))); // NOI18N
+        JLabelClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelCloseMouseClicked(evt);
+            }
+        });
+
+        JLabelMin1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JLabelMin1.setForeground(new java.awt.Color(102, 32, 42));
+        JLabelMin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8_subtract_30px.png"))); // NOI18N
+        JLabelMin1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelMin1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelMin1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(movieTab, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(confirmationTab, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(doneTab, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                        .addComponent(movieTab, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(confirmationTab, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(doneTab, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel23)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                        .addComponent(JLabelMin1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLabelClose)
+                        .addContainerGap())))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(doneTab, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(confirmationTab, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(movieTab, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(doneTab, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                        .addComponent(confirmationTab, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                        .addComponent(movieTab, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JLabelClose)
+                                    .addComponent(JLabelMin1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                                .addGap(0, 10, Short.MAX_VALUE)
+                                .addComponent(jLabel13)))
+                        .addContainerGap())))
         );
 
         Pages.setBackground(new java.awt.Color(249, 235, 196));
@@ -324,7 +432,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(movieSelectPageLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         movieSelectPageLayout.setVerticalGroup(
             movieSelectPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,7 +441,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(41, 41, 41)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pages.add(movieSelectPage);
@@ -367,20 +475,20 @@ public class Home extends javax.swing.JFrame {
         moviePageLayout.setHorizontalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePageLayout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(188, 188, 188)
                 .addComponent(backMoviePageB)
                 .addGap(194, 194, 194)
                 .addComponent(nextMoviePageB)
-                .addContainerGap(776, Short.MAX_VALUE))
+                .addContainerGap(765, Short.MAX_VALUE))
         );
         moviePageLayout.setVerticalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePageLayout.createSequentialGroup()
-                .addContainerGap(372, Short.MAX_VALUE)
+                .addGap(454, 454, 454)
                 .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backMoviePageB)
                     .addComponent(nextMoviePageB))
-                .addGap(260, 260, 260))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pages.add(moviePage);
@@ -413,89 +521,231 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel2.setLayout(new java.awt.GridLayout(4, 2, 35, 40));
+
         jLabel2.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel2.setText("Time");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Movie :");
+        jPanel2.add(jLabel2);
+
+        jLabel5.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel5.setText("jLabel5");
+        jPanel2.add(jLabel5);
 
         jLabel4.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel4.setText("Number of Tickets");
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Time :");
+        jPanel2.add(jLabel4);
+
+        jLabel6.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel6.setText("jLabel6");
+        jPanel2.add(jLabel6);
+
+        jLabel3.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("No. of Tickets :");
+        jPanel2.add(jLabel3);
+
+        jLabel7.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel7.setText("jLabel7");
+        jPanel2.add(jLabel7);
+
+        jLabel8.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("Selected seat(s):");
+        jPanel2.add(jLabel8);
+
+        jLabel10.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel10.setText("jLabel7");
+        jPanel2.add(jLabel10);
+
+        jLabel9.setFont(new java.awt.Font("Figtree", 0, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel9.setText("Payment Details");
+
+        jPanel3.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel3.setLayout(new java.awt.GridLayout(3, 2, 35, 40));
+
+        jLabel15.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("No. of Tickets :");
+        jPanel3.add(jLabel15);
+
+        jLabel12.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel12.setText("jLabel5");
+        jPanel3.add(jLabel12);
+
+        jLabel17.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setText("Price :");
+        jPanel3.add(jLabel17);
+
+        jLabel16.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel16.setText("jLabel7");
+        jPanel3.add(jLabel16);
+
+        jLabel11.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Total :");
+        jPanel3.add(jLabel11);
+
+        jLabel18.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel18.setText("jLabel7");
+        jPanel3.add(jLabel18);
+
+        jLabel19.setFont(new java.awt.Font("Figtree", 0, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel19.setText("Summary");
 
         javax.swing.GroupLayout confirmationPageLayout = new javax.swing.GroupLayout(confirmationPage);
         confirmationPage.setLayout(confirmationPageLayout);
         confirmationPageLayout.setHorizontalGroup(
             confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmationPageLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backConfirmationPageB))
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
                         .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(confirmationPageLayout.createSequentialGroup()
-                                .addGap(128, 128, 128)
-                                .addComponent(backConfirmationPageB))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationPageLayout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(119, 119, 119)
-                        .addComponent(confirmConfirmationPageB))
+                                .addGap(365, 365, 365)
+                                .addComponent(confirmConfirmationPageB))
+                            .addGroup(confirmationPageLayout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(93, 93, 93))
                     .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(475, Short.MAX_VALUE))
+                        .addGap(212, 212, 212)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(181, 181, 181))))
         );
         confirmationPageLayout.setVerticalGroup(
             confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmationPageLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backConfirmationPageB)
-                    .addComponent(confirmConfirmationPageB))
-                .addGap(175, 175, 175))
             .addGroup(confirmationPageLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(confirmConfirmationPageB))
+                    .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(backConfirmationPageB)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pages.add(confirmationPage);
 
         donePage.setBackground(new java.awt.Color(249, 235, 196));
 
-        confirmConfirmationPageB1.setBackground(new java.awt.Color(102, 32, 42));
-        confirmConfirmationPageB1.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        confirmConfirmationPageB1.setForeground(new java.awt.Color(255, 255, 255));
-        confirmConfirmationPageB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/printer.png"))); // NOI18N
-        confirmConfirmationPageB1.setText("PRINT");
-        confirmConfirmationPageB1.addMouseListener(new java.awt.event.MouseAdapter() {
+        printDonePageB.setBackground(new java.awt.Color(102, 32, 42));
+        printDonePageB.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        printDonePageB.setForeground(new java.awt.Color(255, 255, 255));
+        printDonePageB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/printer.png"))); // NOI18N
+        printDonePageB.setText("PRINT RECEIPT");
+        printDonePageB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmConfirmationPageB1MouseClicked(evt);
+                printDonePageBMouseClicked(evt);
             }
         });
+
+        receipttxt.setColumns(20);
+        receipttxt.setFont(new java.awt.Font("Figtree Light", 0, 18)); // NOI18N
+        receipttxt.setRows(5);
+        jScrollPane1.setViewportView(receipttxt);
+
+        jLabel14.setFont(new java.awt.Font("Figtree", 0, 48)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel14.setText("BOOKED SUCESSFULLY!");
+
+        jLabel20.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel20.setText("Thank you and come again");
+
+        jLabel21.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(102, 32, 42));
+        jLabel21.setText("Please proceed to the cinema cashier");
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/clapperboard.png"))); // NOI18N
 
         javax.swing.GroupLayout donePageLayout = new javax.swing.GroupLayout(donePage);
         donePage.setLayout(donePageLayout);
         donePageLayout.setHorizontalGroup(
             donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
-            .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(donePageLayout.createSequentialGroup()
-                    .addGap(610, 610, 610)
-                    .addComponent(confirmConfirmationPageB1)
-                    .addContainerGap(631, Short.MAX_VALUE)))
+            .addGroup(donePageLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel22)
+                .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(donePageLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donePageLayout.createSequentialGroup()
+                                .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(donePageLayout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabel21))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, donePageLayout.createSequentialGroup()
+                                        .addGap(97, 97, 97)
+                                        .addComponent(jLabel20)))
+                                .addGap(93, 93, 93))))
+                    .addGroup(donePageLayout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(printDonePageB)))
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         donePageLayout.setVerticalGroup(
             donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 668, Short.MAX_VALUE)
-            .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(donePageLayout.createSequentialGroup()
-                    .addGap(316, 316, 316)
-                    .addComponent(confirmConfirmationPageB1)
-                    .addContainerGap(316, Short.MAX_VALUE)))
+            .addGroup(donePageLayout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addGroup(donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(donePageLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, donePageLayout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(printDonePageB)
+                        .addGap(101, 101, 101)))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
 
         Pages.add(donePage);
@@ -512,7 +762,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(Pages, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE))
+                .addComponent(Pages, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))
         );
 
         pack();
@@ -570,17 +820,40 @@ public class Home extends javax.swing.JFrame {
     private void confirmConfirmationPageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmConfirmationPageBMouseClicked
         // TODO add your handling code here:
         displayDonePanel();
+        generateReceipt();
     }//GEN-LAST:event_confirmConfirmationPageBMouseClicked
 
     private void backConfirmationPageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backConfirmationPageBMouseClicked
         // TODO add your handling code here:
         displayMoviePanel();
+        
     }//GEN-LAST:event_backConfirmationPageBMouseClicked
 
-    private void confirmConfirmationPageB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmConfirmationPageB1MouseClicked
-        // TODO add your handling code here:
+    private void printDonePageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printDonePageBMouseClicked
+        try {
+            // TODO add your handling code here:
+            receipttxt.print();
+            //System.exit(0);
+        } catch (PrinterException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_printDonePageBMouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        //opens the login/register page before proceeding to the admin page
+        dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void JLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelCloseMouseClicked
+        //close the form
         System.exit(0);
-    }//GEN-LAST:event_confirmConfirmationPageB1MouseClicked
+    }//GEN-LAST:event_JLabelCloseMouseClicked
+
+    private void JLabelMin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelMin1MouseClicked
+        // minimize the page
+        this.setState(Login.ICONIFIED);
+    }//GEN-LAST:event_JLabelMin1MouseClicked
 
 
     public static void main(String args[]) {
@@ -617,12 +890,13 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabelClose;
+    private javax.swing.JLabel JLabelMin1;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Pages;
     private javax.swing.JButton backConfirmationPageB;
     private javax.swing.JButton backMoviePageB;
     private javax.swing.JButton confirmConfirmationPageB;
-    private javax.swing.JButton confirmConfirmationPageB1;
     private javax.swing.JLabel confirmation;
     private javax.swing.JPanel confirmationPage;
     private javax.swing.JPanel confirmationTab;
@@ -630,9 +904,32 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel donePage;
     private javax.swing.JPanel doneTab;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton movie1B;
     private javax.swing.JButton movie2B;
     private javax.swing.JButton movie3B;
@@ -642,6 +939,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel movieTab;
     private javax.swing.JLabel mselectposterlbl;
     private javax.swing.JButton nextMoviePageB;
+    private javax.swing.JButton printDonePageB;
+    private javax.swing.JTextArea receipttxt;
     private javax.swing.JLabel selectMovie;
     // End of variables declaration//GEN-END:variables
 }

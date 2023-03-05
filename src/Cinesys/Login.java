@@ -26,8 +26,9 @@ public class Login extends javax.swing.JFrame {
                 if(rs.next()){
                     JOptionPane.showMessageDialog(null, "You are Logged-in!");
                     dispose();
-//                    sample s = new sample();
-//                    s.setVisible(true);
+                    new Admin().setVisible(true);
+                    
+
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Invalid username or password.");
