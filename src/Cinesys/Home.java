@@ -19,6 +19,9 @@ public class Home extends javax.swing.JFrame {
     ResultSet rs;
     String mname = "";
     String mtime = "";
+    String seatList = "";
+    int price = 200;
+    int total = price * getTicketQty();
     ArrayList <String> movieList = new ArrayList();
     int tcktqty;
    String[] seatsSelect;
@@ -117,6 +120,22 @@ public class Home extends javax.swing.JFrame {
         return mtime;
     }
     
+    void setTicketQty(int tqty){
+        this.tcktqty = tqty;
+    }
+    
+    public int getTicketQty(){
+       return tcktqty;
+   }
+    
+    void setSelectedSeat(String st){
+        this.seatList = st;
+    }
+    
+    public String getSelectedSeat(){
+         return seatList;
+    }
+    
     void displayMoviePanel(){
         movieTab.setBackground(new Color(249,235,196));
         confirmationTab.setBackground(new Color(200,120,47));
@@ -172,104 +191,260 @@ public class Home extends javax.swing.JFrame {
         receipttxt.setText(receipttxt.getText()+ "Davao City, Philippines                \n");
         receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
         receipttxt.setText(receipttxt.getText()+ "                        RECEIPT              \n");
-        receipttxt.setText(receipttxt.getText()+ "MOVIE     :\n");
-        receipttxt.setText(receipttxt.getText()+ "TIME      :\n");
-        receipttxt.setText(receipttxt.getText()+ "TICKETID  :\n");
-        receipttxt.setText(receipttxt.getText()+ "SEAT      :\n");
+        receipttxt.setText(receipttxt.getText()+ "MOVIE     : " + getMovie());
+        receipttxt.setText(receipttxt.getText()+ "TIME      : " + getTime());
+        receipttxt.setText(receipttxt.getText()+ "SEAT      : " + getSelectedSeat() );
         receipttxt.setText(receipttxt.getText()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
         receipttxt.setText(receipttxt.getText()+ "\n");
-        receipttxt.setText(receipttxt.getText()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "                                                  " + price);
+        receipttxt.setText(receipttxt.getText()+ "                                                  " + getTicketQty());
         receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
-        receipttxt.setText(receipttxt.getText()+ "TOTAL  :\n");
+        receipttxt.setText(receipttxt.getText()+ "TOTAL  :                                              " + total);
            
     }
     
     void reserveSeat(){
          // to disable seats that are already reserved/book
         String reserveSeat;
+        String rmovie = getMovie();
+        String rtime = (String) timeslotComboBox.getSelectedItem();
+  
   
         try {
-            ps = Database.connect().prepareStatement(" SELECT `Seat No.` FROM `customerlist` WHERE `Movie Ttile` = ? AND `Time` = ?");
-            ps.setString(1, getMovie());
-            ps.setString(2, getTime());
+            ps = Database.connect().prepareStatement(" SELECT `Seat No.` FROM `customerlist` WHERE `Movie Title` = ? AND `Time` = ?");
+            ps.setString(1, rmovie);
+            ps.setString(2, rtime);
             rs = ps.executeQuery();
-            while(rs.next()){
-                reserveSeat = rs.getString("Seat No.");
-                if(reserveSeat.equals("S1")) S1.setEnabled(false);
-                else if(reserveSeat.equals("S2")) S2.setEnabled(false);
-                else if(reserveSeat.equals("S3")) S3.setEnabled(false);
-                else if(reserveSeat.equals("S4")) S4.setEnabled(false);
-                else if(reserveSeat.equals("S5")) S5.setEnabled(false);
-                else if(reserveSeat.equals("S6")) S6.setEnabled(false);
-                else if(reserveSeat.equals("S7")) S7.setEnabled(false);
-                else if(reserveSeat.equals("S8")) S8.setEnabled(false);
-                else if(reserveSeat.equals("S9")) S9.setEnabled(false);
-                else if(reserveSeat.equals("S10")) S10.setEnabled(false);
-                else if(reserveSeat.equals("S11")) S11.setEnabled(false);
-                else if(reserveSeat.equals("S12")) S12.setEnabled(false);
-                else if(reserveSeat.equals("S13")) S13.setEnabled(false);
-                else if(reserveSeat.equals("S14")) S14.setEnabled(false);
-                else if(reserveSeat.equals("S15")) S15.setEnabled(false);
-                else if(reserveSeat.equals("S16")) S16.setEnabled(false);
-                else if(reserveSeat.equals("S17")) S17.setEnabled(false);
-                else if(reserveSeat.equals("S18")) S18.setEnabled(false);
-                else if(reserveSeat.equals("S19")) S19.setEnabled(false);
-                else if(reserveSeat.equals("S20")) S20.setEnabled(false);
-                else if(reserveSeat.equals("S21")) S21.setEnabled(false);
-                else if(reserveSeat.equals("S22")) S22.setEnabled(false);
-                else if(reserveSeat.equals("S23")) S23.setEnabled(false);
-                else if(reserveSeat.equals("S24")) S24.setEnabled(false);
-                else if(reserveSeat.equals("S25")) S25.setEnabled(false);
-                else if(reserveSeat.equals("S26")) S26.setEnabled(false);
-                else if(reserveSeat.equals("S27")) S27.setEnabled(false);
-                else if(reserveSeat.equals("S28")) S28.setEnabled(false);
-                else if(reserveSeat.equals("S29")) S29.setEnabled(false);
-                else if(reserveSeat.equals("S30")) S30.setEnabled(false);
-                else if(reserveSeat.equals("S31")) S31.setEnabled(false);
-                else if(reserveSeat.equals("S32")) S32.setEnabled(false);
-                else if(reserveSeat.equals("S33")) S33.setEnabled(false);
-                else if(reserveSeat.equals("S34")) S34.setEnabled(false);
-                else if(reserveSeat.equals("S35")) S35.setEnabled(false);
-                else if(reserveSeat.equals("S36")) S36.setEnabled(false);
-                else if(reserveSeat.equals("S37")) S37.setEnabled(false);
-                else if(reserveSeat.equals("S38")) S38.setEnabled(false);
-                else if(reserveSeat.equals("S39")) S39.setEnabled(false);
-                else if(reserveSeat.equals("S40")) S40.setEnabled(false);
-                else if(reserveSeat.equals("S41")) S41.setEnabled(false);
-                else if(reserveSeat.equals("S42")) S42.setEnabled(false);
-                else if(reserveSeat.equals("S43")) S43.setEnabled(false);
-                else if(reserveSeat.equals("S44")) S44.setEnabled(false);
-                else if(reserveSeat.equals("S45")) S45.setEnabled(false);
-                else if(reserveSeat.equals("S46")) S46.setEnabled(false);
-                else if(reserveSeat.equals("S47")) S47.setEnabled(false);
-                else if(reserveSeat.equals("S48")) S48.setEnabled(false);
-                else if(reserveSeat.equals("S49")) S49.setEnabled(false);
-                else if(reserveSeat.equals("S50")) S50.setEnabled(false);
-                else if(reserveSeat.equals("S51")) S51.setEnabled(false);
-                else if(reserveSeat.equals("S52")) S52.setEnabled(false);
-                else if(reserveSeat.equals("S53")) S53.setEnabled(false);
-                else if(reserveSeat.equals("S54")) S54.setEnabled(false);
-                else if(reserveSeat.equals("S55")) S55.setEnabled(false);
-                else if(reserveSeat.equals("S56")) S56.setEnabled(false);
-                else if(reserveSeat.equals("S57")) S57.setEnabled(false);
-                else if(reserveSeat.equals("S58")) S58.setEnabled(false);
-                else if(reserveSeat.equals("S59")) S59.setEnabled(false);
-                else if(reserveSeat.equals("S60")) S60.setEnabled(false);
-                else if(reserveSeat.equals("S61")) S61.setEnabled(false);
-                else if(reserveSeat.equals("S62")) S62.setEnabled(false);
-                else if(reserveSeat.equals("S63")) S63.setEnabled(false);
-                else if(reserveSeat.equals("S64")) S64.setEnabled(false);
-                else if(reserveSeat.equals("S65")) S65.setEnabled(false);
-                else if(reserveSeat.equals("S66")) S66.setEnabled(false);
-                else if(reserveSeat.equals("S67")) S67.setEnabled(false);
-                else if(reserveSeat.equals("S68")) S68.setEnabled(false);
-                else if(reserveSeat.equals("S69")) S69.setEnabled(false);
-                else if(reserveSeat.equals("S70")) S70.setEnabled(false);
-                else if(reserveSeat.equals("S71")) S71.setEnabled(false);
-                else if(reserveSeat.equals("S72")) S72.setEnabled(false);
-                else if(reserveSeat.equals("S73")) S73.setEnabled(false);
-                else if(reserveSeat.equals("S74")) S74.setEnabled(false);
+            while(rs.next() == true){
+                reserveSeat = rs.getString(1);
+                switch (reserveSeat) {
+                    case "S1":
+                        S1.setEnabled(false);
+                        break;
+                    case "S2":
+                        S2.setEnabled(false);
+                        break;
+                    case "S3":
+                        S3.setEnabled(false);
+                        break;
+                    case "S4":
+                        S4.setEnabled(false);
+                        break;
+                    case "S5":
+                        S5.setEnabled(false);
+                        break;
+                    case "S6":
+                        S6.setEnabled(false);
+                        break;
+                    case "S7":
+                        S7.setEnabled(false);
+                        break;
+                    case "S8":
+                        S8.setEnabled(false);
+                        break;
+                    case "S9":
+                        S9.setEnabled(false);
+                        break;
+                    case "S10":
+                        S10.setEnabled(false);
+                        break;
+                    case "S11":
+                        S11.setEnabled(false);
+                        break;
+                    case "S12":
+                        S12.setEnabled(false);
+                        break;
+                    case "S13":
+                        S13.setEnabled(false);
+                        break;
+                    case "S14":
+                        S14.setEnabled(false);
+                        break;
+                    case "S15":
+                        S15.setEnabled(false);
+                        break;
+                    case "S16":
+                        S16.setEnabled(false);
+                        break;
+                    case "S17":
+                        S17.setEnabled(false);
+                        break;
+                    case "S18":
+                        S18.setEnabled(false);
+                        break;
+                    case "S19":
+                        S19.setEnabled(false);
+                        break;
+                    case "S20":
+                        S20.setEnabled(false);
+                        break;
+                    case "S21":
+                        S21.setEnabled(false);
+                        break;
+                    case "S22":
+                        S22.setEnabled(false);
+                        break;
+                    case "S23":
+                        S23.setEnabled(false);
+                        break;
+                    case "S24":
+                        S24.setEnabled(false);
+                        break;
+                    case "S25":
+                        S25.setEnabled(false);
+                        break;
+                    case "S26":
+                        S26.setEnabled(false);
+                        break;
+                    case "S27":
+                        S27.setEnabled(false);
+                        break;
+                    case "S28":
+                        S28.setEnabled(false);
+                        break;
+                    case "S29":
+                        S29.setEnabled(false);
+                        break;
+                    case "S30":
+                        S30.setEnabled(false);
+                        break;
+                    case "S31":
+                        S31.setEnabled(false);
+                        break;
+                    case "S32":
+                        S32.setEnabled(false);
+                        break;
+                    case "S33":
+                        S33.setEnabled(false);
+                        break;
+                    case "S34":
+                        S34.setEnabled(false);
+                        break;
+                    case "S35":
+                        S35.setEnabled(false);
+                        break;
+                    case "S36":
+                        S36.setEnabled(false);
+                        break;
+                    case "S37":
+                        S37.setEnabled(false);
+                        break;
+                    case "S38":
+                        S38.setEnabled(false);
+                        break;
+                    case "S39":
+                        S39.setEnabled(false);
+                        break;
+                    case "S40":
+                        S40.setEnabled(false);
+                        break;
+                    case "S41":
+                        S41.setEnabled(false);
+                        break;
+                    case "S42":
+                        S42.setEnabled(false);
+                        break;
+                    case "S43":
+                        S43.setEnabled(false);
+                        break;
+                    case "S44":
+                        S44.setEnabled(false);
+                        break;
+                    case "S45":
+                        S45.setEnabled(false);
+                        break;
+                    case "S46":
+                        S46.setEnabled(false);
+                        break;
+                    case "S47":
+                        S47.setEnabled(false);
+                        break;
+                    case "S48":
+                        S48.setEnabled(false);
+                        break;
+                    case "S49":
+                        S49.setEnabled(false);
+                        break;
+                    case "S50":
+                        S50.setEnabled(false);
+                        break;
+                    case "S51":
+                        S51.setEnabled(false);
+                        break;
+                    case "S52":
+                        S52.setEnabled(false);
+                        break;
+                    case "S53":
+                        S53.setEnabled(false);
+                        break;
+                    case "S54":
+                        S54.setEnabled(false);
+                        break;
+                    case "S55":
+                        S55.setEnabled(false);
+                        break;
+                    case "S56":
+                        S56.setEnabled(false);
+                        break;
+                    case "S57":
+                        S57.setEnabled(false);
+                        break;
+                    case "S58":
+                        S58.setEnabled(false);
+                        break;
+                    case "S59":
+                        S59.setEnabled(false);
+                        break;
+                    case "S60":
+                        S60.setEnabled(false);
+                        break;
+                    case "S61":
+                        S61.setEnabled(false);
+                        break;
+                    case "S62":
+                        S62.setEnabled(false);
+                        break;
+                    case "S63":
+                        S63.setEnabled(false);
+                        break;
+                    case "S64":
+                        S64.setEnabled(false);
+                        break;
+                    case "S65":
+                        S65.setEnabled(false);
+                        break;
+                    case "S66":
+                        S66.setEnabled(false);
+                        break;
+                    case "S67":
+                        S67.setEnabled(false);
+                        break;
+                    case "S68":
+                        S68.setEnabled(false);
+                        break;
+                    case "S69":
+                        S69.setEnabled(false);
+                        break;
+                    case "S70":
+                        S70.setEnabled(false);
+                        break;
+                    case "S71":
+                        S71.setEnabled(false);
+                        break;
+                    case "S72":
+                        S72.setEnabled(false);
+                        break;
+                    case "S73":
+                        S73.setEnabled(false);
+                        break;
+                    case "S74":
+                        S74.setEnabled(false);
+                        break;
+                    default:
+                        setEnabled(true);
+                        break;
+                }
             
 
                 }
@@ -280,14 +455,18 @@ public class Home extends javax.swing.JFrame {
      }
     
     void insertSelectionToDatabase(){
+        //send users booked info to database
         for(int i = 0; i < tcktqty; i++){
             String s = seatsSelect[i];
+            String selectedMovie = getMovie();
+           String selectedTime = (String) timeslotComboBox.getSelectedItem();
             int tq = i;
             try {
-                ps = Database.connect().prepareStatement("INSERT INTO `customerlist`(`Movie Ttile`, `Time`, `Seat No.`) VALUES (?,?,?)");
-                ps.setString(1, getMovie());
-                ps.setString(2, getTime());
+                ps = Database.connect().prepareStatement("INSERT INTO `customerlist`(`Movie Title`, `Time`, `Seat No.`) VALUES (?,?,?)");
+                ps.setString(1, selectedMovie);
+                ps.setString(2, selectedTime);
                 ps.setString(3, s);
+                ps.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -404,6 +583,29 @@ public class Home extends javax.swing.JFrame {
         }       
                
     }
+    
+    void displaySummary(){
+        //display summary at the confirmation panel
+
+            for(int i = 0; i < clickseat; i++){
+                String s = seatsSelect[i];
+                seatList += s + " ";               
+        }seatselectlbl.setText(seatList);
+        setSelectedSeat(seatList);
+         movielbl.setText(getMovie()); 
+         timelbl.setText(getTime());
+         setTicketQty(tcktqty);
+         ticketnumlbl.setText(String.valueOf(getTicketQty()));
+    }
+  
+    void displayPayment(){
+         ticketnumlbl1.setText(String.valueOf(getTicketQty()));
+         pricelbl.setText("200 php");
+         int total = 200 * getTicketQty();
+         totalpricelbl.setText(String.valueOf(total));
+                 
+         
+    }
 
 
     @SuppressWarnings("unchecked")
@@ -436,7 +638,7 @@ public class Home extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         timeslotComboBox = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ticketqtytxt = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         S1 = new javax.swing.JButton();
         S2 = new javax.swing.JButton();
@@ -515,27 +717,28 @@ public class Home extends javax.swing.JFrame {
         S73 = new javax.swing.JButton();
         S74 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
+        resetMoviePageB = new javax.swing.JButton();
         confirmationPage = new javax.swing.JPanel();
         mselectposterlbl = new javax.swing.JLabel();
         confirmConfirmationPageB = new javax.swing.JButton();
         backConfirmationPageB = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        movielbl = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        timelbl = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        ticketnumlbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        seatselectlbl = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        ticketnumlbl1 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        pricelbl = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        totalpricelbl = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         donePage = new javax.swing.JPanel();
         printDonePageB = new javax.swing.JButton();
@@ -792,7 +995,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jPanel4.setBackground(new java.awt.Color(249, 235, 196));
-        jPanel4.setLayout(new java.awt.GridLayout(2, 2, 40, 40));
+        jPanel4.setLayout(new java.awt.GridLayout(2, 2, 0, 25));
 
         jLabel24.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(102, 32, 42));
@@ -802,6 +1005,7 @@ public class Home extends javax.swing.JFrame {
         timeslotComboBox.setBackground(new java.awt.Color(227, 183, 120));
         timeslotComboBox.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         timeslotComboBox.setForeground(new java.awt.Color(102, 32, 42));
+        timeslotComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         timeslotComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 timeslotComboBoxItemStateChanged(evt);
@@ -814,10 +1018,15 @@ public class Home extends javax.swing.JFrame {
         jLabel25.setText("Ticket Qty :");
         jPanel4.add(jLabel25);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 32, 42));
-        jPanel4.add(jTextField1);
+        ticketqtytxt.setBackground(new java.awt.Color(255, 255, 255));
+        ticketqtytxt.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        ticketqtytxt.setForeground(new java.awt.Color(102, 32, 42));
+        ticketqtytxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ticketqtytxtKeyReleased(evt);
+            }
+        });
+        jPanel4.add(ticketqtytxt);
 
         jPanel5.setBackground(new java.awt.Color(249, 235, 196));
         jPanel5.setLayout(new java.awt.GridLayout(5, 5, 10, 10));
@@ -1433,51 +1642,70 @@ public class Home extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
+        resetMoviePageB.setBackground(new java.awt.Color(102, 32, 42));
+        resetMoviePageB.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        resetMoviePageB.setForeground(new java.awt.Color(255, 255, 255));
+        resetMoviePageB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reset.png"))); // NOI18N
+        resetMoviePageB.setText("Reset Selected Seat");
+        resetMoviePageB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetMoviePageBMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout moviePageLayout = new javax.swing.GroupLayout(moviePage);
         moviePage.setLayout(moviePageLayout);
         moviePageLayout.setHorizontalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(89, 89, 89)
+                .addComponent(backMoviePageB)
+                .addGap(98, 98, 98)
+                .addComponent(nextMoviePageB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(254, 254, 254))
             .addGroup(moviePageLayout.createSequentialGroup()
                 .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(moviePageLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(backMoviePageB)
-                        .addGap(98, 98, 98)
-                        .addComponent(nextMoviePageB))
+                        .addGap(253, 253, 253)
+                        .addComponent(resetMoviePageB))
                     .addGroup(moviePageLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(64, 64, 64)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(134, 134, 134)
+                .addGap(98, 98, 98)
                 .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(moviePageLayout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         moviePageLayout.setVerticalGroup(
             moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePageLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(moviePageLayout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(backMoviePageB)
-                            .addComponent(nextMoviePageB)))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(398, Short.MAX_VALUE))
+                        .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePageLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(resetMoviePageB)
+                        .addGap(51, 51, 51)))
+                .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(moviePageLayout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(moviePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backMoviePageB)
+                        .addComponent(nextMoviePageB)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pages.add(moviePage);
@@ -1511,7 +1739,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 102));
-        jPanel2.setLayout(new java.awt.GridLayout(4, 2, 35, 40));
+        jPanel2.setLayout(new java.awt.GridLayout(4, 2));
 
         jLabel2.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 32, 42));
@@ -1519,10 +1747,9 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setText("Movie :");
         jPanel2.add(jLabel2);
 
-        jLabel5.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel5.setText("jLabel5");
-        jPanel2.add(jLabel5);
+        movielbl.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        movielbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel2.add(movielbl);
 
         jLabel4.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 32, 42));
@@ -1530,10 +1757,9 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setText("Time :");
         jPanel2.add(jLabel4);
 
-        jLabel6.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6);
+        timelbl.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        timelbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel2.add(timelbl);
 
         jLabel3.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 32, 42));
@@ -1541,10 +1767,9 @@ public class Home extends javax.swing.JFrame {
         jLabel3.setText("No. of Tickets :");
         jPanel2.add(jLabel3);
 
-        jLabel7.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel7.setText("jLabel7");
-        jPanel2.add(jLabel7);
+        ticketnumlbl.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        ticketnumlbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel2.add(ticketnumlbl);
 
         jLabel8.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 32, 42));
@@ -1552,17 +1777,16 @@ public class Home extends javax.swing.JFrame {
         jLabel8.setText("Selected seat(s):");
         jPanel2.add(jLabel8);
 
-        jLabel10.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel10.setText("jLabel7");
-        jPanel2.add(jLabel10);
+        seatselectlbl.setFont(new java.awt.Font("Figtree Light", 0, 12)); // NOI18N
+        seatselectlbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel2.add(seatselectlbl);
 
         jLabel9.setFont(new java.awt.Font("Figtree", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 32, 42));
         jLabel9.setText("Payment Details");
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 102));
-        jPanel3.setLayout(new java.awt.GridLayout(3, 2, 35, 40));
+        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
 
         jLabel15.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 32, 42));
@@ -1570,10 +1794,9 @@ public class Home extends javax.swing.JFrame {
         jLabel15.setText("No. of Tickets :");
         jPanel3.add(jLabel15);
 
-        jLabel12.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel12.setText("jLabel5");
-        jPanel3.add(jLabel12);
+        ticketnumlbl1.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        ticketnumlbl1.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel3.add(ticketnumlbl1);
 
         jLabel17.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 32, 42));
@@ -1581,10 +1804,9 @@ public class Home extends javax.swing.JFrame {
         jLabel17.setText("Price :");
         jPanel3.add(jLabel17);
 
-        jLabel16.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel16.setText("jLabel7");
-        jPanel3.add(jLabel16);
+        pricelbl.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        pricelbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel3.add(pricelbl);
 
         jLabel11.setFont(new java.awt.Font("Figtree", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 32, 42));
@@ -1592,10 +1814,9 @@ public class Home extends javax.swing.JFrame {
         jLabel11.setText("Total :");
         jPanel3.add(jLabel11);
 
-        jLabel18.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(102, 32, 42));
-        jLabel18.setText("jLabel7");
-        jPanel3.add(jLabel18);
+        totalpricelbl.setFont(new java.awt.Font("Figtree Light", 0, 24)); // NOI18N
+        totalpricelbl.setForeground(new java.awt.Color(102, 32, 42));
+        jPanel3.add(totalpricelbl);
 
         jLabel19.setFont(new java.awt.Font("Figtree", 0, 36)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 32, 42));
@@ -1606,50 +1827,48 @@ public class Home extends javax.swing.JFrame {
         confirmationPageLayout.setHorizontalGroup(
             confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmationPageLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(62, 62, 62)
+                .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backConfirmationPageB))
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
                         .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(confirmationPageLayout.createSequentialGroup()
-                                .addGap(365, 365, 365)
-                                .addComponent(confirmConfirmationPageB))
+                                .addGap(299, 299, 299)
+                                .addComponent(backConfirmationPageB))
                             .addGroup(confirmationPageLayout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(93, 93, 93))
+                                .addGap(48, 48, 48)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(69, 69, 69)
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(confirmConfirmationPageB))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGap(212, 212, 212)
+                        .addGap(157, 157, 157)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9)
-                        .addGap(181, 181, 181))))
+                        .addGap(198, 198, 198))))
         );
         confirmationPageLayout.setVerticalGroup(
             confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmationPageLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(confirmConfirmationPageB))
-                    .addGroup(confirmationPageLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(backConfirmationPageB)))
+                .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(confirmationPageLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87)
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmConfirmationPageB)
+                    .addComponent(backConfirmationPageB))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1730,7 +1949,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(backToHomeB)
                         .addGap(305, 305, 305)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         donePageLayout.setVerticalGroup(
             donePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1752,7 +1971,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(backToHomeB)
                         .addGap(32, 32, 32)))
-                .addContainerGap(479, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pages.add(donePage);
@@ -1782,6 +2001,9 @@ public class Home extends javax.swing.JFrame {
          setMovie(mname);
          displayTimeSlot();
          displayMoviePanel();
+//         enableAllButtons();
+//         reserveSeat();
+        
          
         
     }//GEN-LAST:event_movie1BMouseClicked
@@ -1793,6 +2015,8 @@ public class Home extends javax.swing.JFrame {
         setMovie(mname);
         displayTimeSlot();
         displayMoviePanel();
+//        enableAllButtons();
+//         reserveSeat();
 
         
     }//GEN-LAST:event_movie2BMouseClicked
@@ -1804,6 +2028,8 @@ public class Home extends javax.swing.JFrame {
         setMovie(mname);
         displayTimeSlot();
         displayMoviePanel();
+//        enableAllButtons();
+//         reserveSeat();
         
     }//GEN-LAST:event_movie3BMouseClicked
 
@@ -1814,27 +2040,36 @@ public class Home extends javax.swing.JFrame {
         setMovie(mname);
         displayTimeSlot();
         displayMoviePanel();
+//        enableAllButtons();
+//         reserveSeat();
         
     }//GEN-LAST:event_movie4BMouseClicked
 
     private void backMoviePageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMoviePageBMouseClicked
         // TODO add your handling code here:
+        enableAllButtons();
         displayMovieSelectPanel();
     }//GEN-LAST:event_backMoviePageBMouseClicked
 
     private void nextMoviePageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextMoviePageBMouseClicked
         // TODO add your handling code here:
         if(clickseat < tcktqty){//tells the user if they still lack seat selection
-            JOptionPane.showMessageDialog(null, "pls select " + (tcktqty - clickseat)+ " more seat/s" );
+            JOptionPane.showMessageDialog(null, "pls select " + (tcktqty - clickseat)+ " more seat(s)" );
         }else{
+            mtime = (String) timeslotComboBox.getSelectedItem();
+            setTime(mtime);
             displayConfirmationPanel();
             displaySelectedMovie();
+            displaySummary();
+            displayPayment();
+            
         }
         
     }//GEN-LAST:event_nextMoviePageBMouseClicked
 
     private void confirmConfirmationPageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmConfirmationPageBMouseClicked
         // TODO add your handling code here:
+        insertSelectionToDatabase();
         displayDonePanel();
         generateReceipt();
     }//GEN-LAST:event_confirmConfirmationPageBMouseClicked
@@ -1878,10 +2113,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_backToHomeBMouseClicked
 
     private void timeslotComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_timeslotComboBoxItemStateChanged
-        //get selected time
+        //disable reserve seats
+        enableAllButtons();
         if(evt.getStateChange() == ItemEvent.SELECTED ){
-            String mtime = (String) timeslotComboBox.getSelectedItem();
-            setTime(mtime);
+            reserveSeat();
         }
     }//GEN-LAST:event_timeslotComboBoxItemStateChanged
 
@@ -2773,6 +3008,21 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_S74ActionPerformed
 
+    private void resetMoviePageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMoviePageBMouseClicked
+        // reset selected seats
+        clickseat = 0;
+        enableAllButtons();
+        reserveSeat();
+    }//GEN-LAST:event_resetMoviePageBMouseClicked
+
+    private void ticketqtytxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ticketqtytxtKeyReleased
+        // TODO add your handling code here:
+        if(ticketqtytxt.getText().length()>0){
+        tcktqty = Integer.parseInt(ticketqtytxt.getText());
+        seatsSelect = new String[tcktqty];
+        }
+    }//GEN-LAST:event_ticketqtytxtKeyReleased
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2897,15 +3147,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel donePage;
     private javax.swing.JPanel doneTab;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -2916,9 +3162,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -2930,7 +3173,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton movie1B;
     private javax.swing.JButton movie2B;
     private javax.swing.JButton movie3B;
@@ -2938,11 +3180,20 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel moviePage;
     private javax.swing.JPanel movieSelectPage;
     private javax.swing.JPanel movieTab;
+    private javax.swing.JLabel movielbl;
     private javax.swing.JLabel mselectposterlbl;
     private javax.swing.JButton nextMoviePageB;
+    private javax.swing.JLabel pricelbl;
     private javax.swing.JButton printDonePageB;
     private javax.swing.JTextArea receipttxt;
+    private javax.swing.JButton resetMoviePageB;
+    private javax.swing.JLabel seatselectlbl;
     private javax.swing.JLabel selectMovie;
+    private javax.swing.JLabel ticketnumlbl;
+    private javax.swing.JLabel ticketnumlbl1;
+    private javax.swing.JTextField ticketqtytxt;
+    private javax.swing.JLabel timelbl;
     private javax.swing.JComboBox<String> timeslotComboBox;
+    private javax.swing.JLabel totalpricelbl;
     // End of variables declaration//GEN-END:variables
 }

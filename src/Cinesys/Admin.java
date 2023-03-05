@@ -1061,7 +1061,7 @@ public class Admin extends javax.swing.JFrame {
             String rmovie = (String) movielistcbbox.getSelectedItem();
             String rtime = (String) timelistcbbox.getSelectedItem();
             try {
-                ps = Database.connect().prepareStatement("SELECT * FROM `customerlist` WHERE `Movie Ttile`= ? AND `Time` = ?");
+                ps = Database.connect().prepareStatement("SELECT * FROM `customerlist` WHERE `Movie Title`= ? AND `Time` = ?");
                 ps.setString(1, rmovie);
                 ps.setString(2, rtime);
 
