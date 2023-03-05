@@ -191,16 +191,16 @@ public class Home extends javax.swing.JFrame {
         receipttxt.setText(receipttxt.getText()+ "Davao City, Philippines                \n");
         receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
         receipttxt.setText(receipttxt.getText()+ "                        RECEIPT              \n");
-        receipttxt.setText(receipttxt.getText()+ "MOVIE     : " + getMovie());
-        receipttxt.setText(receipttxt.getText()+ "TIME      : " + getTime());
-        receipttxt.setText(receipttxt.getText()+ "SEAT      : " + getSelectedSeat() );
+        receipttxt.setText(receipttxt.getText()+ "MOVIE : " + getMovie()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "TIME  : " + getTime()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "SEAT  : " + getSelectedSeat() + "\n");
         receipttxt.setText(receipttxt.getText()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
         receipttxt.setText(receipttxt.getText()+ "\n");
-        receipttxt.setText(receipttxt.getText()+ "                                                  " + price);
-        receipttxt.setText(receipttxt.getText()+ "                                                  " + getTicketQty());
+        receipttxt.setText(receipttxt.getText()+ "                                                    " + price + "\n");
+        receipttxt.setText(receipttxt.getText()+ "                                                  x   " + getTicketQty()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
-        receipttxt.setText(receipttxt.getText()+ "TOTAL  :                                              " + total);
+        receipttxt.setText(receipttxt.getText()+ "TOTAL  :                                " + (price * getTicketQty()));
            
     }
     
