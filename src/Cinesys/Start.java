@@ -139,8 +139,8 @@ public class Start extends javax.swing.JFrame {
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
-        dispose();
         new Home().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jPanel2MouseClicked
 
     public static void main(String args[]) {

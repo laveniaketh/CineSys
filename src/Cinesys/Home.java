@@ -17,24 +17,16 @@ public class Home extends javax.swing.JFrame {
     
     PreparedStatement ps;
     ResultSet rs;
-    String mname = "";
-    String mtime = "";
-    String seatList = "";
-    int price = 200;
-    int total = price * getTicketQty();
-    ArrayList <String> movieList = new ArrayList();
-    int tcktqty;
+   String mname = "";
+   String mtime = "";
+   String seatList = "";
+   int price = 200;
+   ArrayList <String> movieList = new ArrayList();
+   int tcktqty;
    String[] seatsSelect;
    String snum;
    int clickseat = 0;
    boolean checkseat = true;
-   String setSeat(String snum){
-       this.snum = snum;
-       return snum;  
-    }
-   String getSeat(){
-       return snum;
-   }
 
     public Home() {
         initComponents();
@@ -120,6 +112,14 @@ public class Home extends javax.swing.JFrame {
         return mtime;
     }
     
+   void setSeat(String snum){
+        this.snum = snum;
+    }
+   
+   String getSeat(){
+       return snum;
+   }
+    
     void setTicketQty(int tqty){
         this.tcktqty = tqty;
     }
@@ -136,7 +136,8 @@ public class Home extends javax.swing.JFrame {
          return seatList;
     }
     
-    void displayMoviePanel(){
+    void displaySelectMoviePanel(){
+        //display movie panel at the home page
         movieTab.setBackground(new Color(249,235,196));
         confirmationTab.setBackground(new Color(200,120,47));
         doneTab.setBackground(new Color(200,120,47));
@@ -147,6 +148,7 @@ public class Home extends javax.swing.JFrame {
     }
     
     void displayConfirmationPanel(){
+        //display confirmation panel at the home page
         confirmationTab.setBackground(new Color(249,235,196));
         movieTab.setBackground(new Color(200,120,47));
         doneTab.setBackground(new Color(200,120,47));
@@ -157,6 +159,7 @@ public class Home extends javax.swing.JFrame {
     }
     
     void displayDonePanel(){
+        //display done panel at the home page
         doneTab.setBackground(new Color(249,235,196));
         movieTab.setBackground(new Color(200,120,47));
         confirmationTab.setBackground(new Color(200,120,47));
@@ -167,6 +170,7 @@ public class Home extends javax.swing.JFrame {
     }
     
     void displaySelectedMovie(){
+        //display poster of the selected movie at the movieselectpanel
         try {
             mname = getMovie();
             ps = Database.connect().prepareStatement("SELECT `image` FROM `movielist` WHERE `Movie Title`=?");
@@ -197,8 +201,8 @@ public class Home extends javax.swing.JFrame {
         receipttxt.setText(receipttxt.getText()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "---------------------------------------\n");
         receipttxt.setText(receipttxt.getText()+ "\n");
-        receipttxt.setText(receipttxt.getText()+ "                                                    " + price + "\n");
-        receipttxt.setText(receipttxt.getText()+ "                                                  x   " + getTicketQty()+ "\n");
+        receipttxt.setText(receipttxt.getText()+ "                                               " + price + "\n");
+        receipttxt.setText(receipttxt.getText()+ "                                           x   " + getTicketQty()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
         receipttxt.setText(receipttxt.getText()+ "TOTAL  :                                " + (price * getTicketQty()));
            
@@ -587,7 +591,7 @@ public class Home extends javax.swing.JFrame {
     void displaySummary(){
         //display summary at the confirmation panel
 
-            for(int i = 0; i < clickseat; i++){
+            for(int i = 0; i <tcktqty ; i++){
                 String s = seatsSelect[i];
                 seatList += s + " ";               
         }seatselectlbl.setText(seatList);
@@ -1737,6 +1741,11 @@ public class Home extends javax.swing.JFrame {
                 backConfirmationPageBMouseClicked(evt);
             }
         });
+        backConfirmationPageB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backConfirmationPageBActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 102));
         jPanel2.setLayout(new java.awt.GridLayout(4, 2));
@@ -1853,22 +1862,23 @@ public class Home extends javax.swing.JFrame {
         confirmationPageLayout.setVerticalGroup(
             confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmationPageLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(confirmationPageLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87)
-                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmConfirmationPageB)
-                    .addComponent(backConfirmationPageB))
+                .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(mselectposterlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(confirmationPageLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(87, 87, 87)
+                        .addGroup(confirmationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmConfirmationPageB)
+                            .addComponent(backConfirmationPageB))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2000,9 +2010,7 @@ public class Home extends javax.swing.JFrame {
          mname = movieList.get(0);
          setMovie(mname);
          displayTimeSlot();
-         displayMoviePanel();
-//         enableAllButtons();
-//         reserveSeat();
+         displaySelectMoviePanel();
         
          
         
@@ -2014,9 +2022,8 @@ public class Home extends javax.swing.JFrame {
         mname = movieList.get(1);
         setMovie(mname);
         displayTimeSlot();
-        displayMoviePanel();
-//        enableAllButtons();
-//         reserveSeat();
+        displaySelectMoviePanel();
+
 
         
     }//GEN-LAST:event_movie2BMouseClicked
@@ -2027,9 +2034,8 @@ public class Home extends javax.swing.JFrame {
         mname = movieList.get(2);
         setMovie(mname);
         displayTimeSlot();
-        displayMoviePanel();
-//        enableAllButtons();
-//         reserveSeat();
+        displaySelectMoviePanel();
+
         
     }//GEN-LAST:event_movie3BMouseClicked
 
@@ -2039,9 +2045,8 @@ public class Home extends javax.swing.JFrame {
         mname = movieList.get(3);
         setMovie(mname);
         displayTimeSlot();
-        displayMoviePanel();
-//        enableAllButtons();
-//         reserveSeat();
+        displaySelectMoviePanel();
+
         
     }//GEN-LAST:event_movie4BMouseClicked
 
@@ -2076,7 +2081,10 @@ public class Home extends javax.swing.JFrame {
 
     private void backConfirmationPageBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backConfirmationPageBMouseClicked
         // TODO add your handling code here:
-        displayMoviePanel();
+        clickseat = 0;
+        enableAllButtons();
+        reserveSeat();
+        displaySelectMoviePanel();
         
     }//GEN-LAST:event_backConfirmationPageBMouseClicked
 
@@ -2092,8 +2100,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
         //opens the login/register page before proceeding to the admin page
-        dispose();
         new Login().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void JLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelCloseMouseClicked
@@ -2425,7 +2433,7 @@ public class Home extends javax.swing.JFrame {
         seatLimiter();
         if(checkseat){
             clickseat++;
-            snum = "26";
+            snum = "S26";
             setSeat(snum);
             seatsSelect[clickseat - 1] = getSeat();
             S26.setEnabled(false);
@@ -3013,6 +3021,7 @@ public class Home extends javax.swing.JFrame {
         clickseat = 0;
         enableAllButtons();
         reserveSeat();
+        
     }//GEN-LAST:event_resetMoviePageBMouseClicked
 
     private void ticketqtytxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ticketqtytxtKeyReleased
@@ -3020,8 +3029,13 @@ public class Home extends javax.swing.JFrame {
         if(ticketqtytxt.getText().length()>0){
         tcktqty = Integer.parseInt(ticketqtytxt.getText());
         seatsSelect = new String[tcktqty];
+;
         }
     }//GEN-LAST:event_ticketqtytxtKeyReleased
+
+    private void backConfirmationPageBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backConfirmationPageBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backConfirmationPageBActionPerformed
 
 
     public static void main(String args[]) {

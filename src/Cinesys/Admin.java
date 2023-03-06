@@ -864,8 +864,8 @@ public class Admin extends javax.swing.JFrame {
 
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
         //to close the admin page and proceed to open home page
-        dispose();
         new Start().setVisible(true);
+        dispose();
     }//GEN-LAST:event_tab4MouseClicked
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
