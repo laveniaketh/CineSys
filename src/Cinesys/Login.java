@@ -24,9 +24,8 @@ public class Login extends javax.swing.JFrame {
 
             rs = ps.executeQuery();
                 if(rs.next()){
-                    JOptionPane.showMessageDialog(null, "You are Logged-in!");
-                    dispose();
                     new Admin().setVisible(true);
+                    dispose();
                     
 
                 }

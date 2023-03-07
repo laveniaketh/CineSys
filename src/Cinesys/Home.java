@@ -15,8 +15,8 @@ import java.awt.print.*;
 
 public class Home extends javax.swing.JFrame {
     
-    PreparedStatement ps;
-    ResultSet rs;
+   PreparedStatement ps;
+   ResultSet rs;
    String mname = "";
    String mtime = "";
    String seatList = "";
@@ -204,7 +204,7 @@ public class Home extends javax.swing.JFrame {
         receipttxt.setText(receipttxt.getText()+ "                                               " + price + "\n");
         receipttxt.setText(receipttxt.getText()+ "                                           x   " + getTicketQty()+ "\n");
         receipttxt.setText(receipttxt.getText()+ "                                       --------------\n");
-        receipttxt.setText(receipttxt.getText()+ "TOTAL  :                                " + (price * getTicketQty()));
+        receipttxt.setText(receipttxt.getText()+ "TOTAL  :                           PHP " + (price * getTicketQty()));
            
     }
     
@@ -474,7 +474,7 @@ public class Home extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }JOptionPane.showMessageDialog(null,"Record Added");
+        }
     }
     
     void seatLimiter(){
